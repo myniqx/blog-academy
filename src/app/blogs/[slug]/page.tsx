@@ -15,7 +15,7 @@ const Blog = ({ params }: { params: { slug: string } }) => {
 
   return (
     <>
-      {/* @ts-ignore
+      {/* 
       <NextSeo
         title={blogPost.title}
         description={blogPost.description}

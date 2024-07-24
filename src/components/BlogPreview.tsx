@@ -12,11 +12,11 @@ export const BlogPreview: React.FC<BlogPreviewProps> = ({
   slug
 }) => {
   return (
-
     <Card
       direction={{ base: 'column', sm: 'row' }}
       overflow='hidden'
       variant='outline'
+      shadow={'3xl'}
     >
       <Image
         objectFit='cover'

@@ -1,10 +1,10 @@
 import { Box, Image, Stack } from "@chakra-ui/react"
 import { Header } from "./fixed/Hearder"
-import { Footer } from "./fixed/Footer"
+import { Footer, FooterMenu } from "./fixed/Footer"
 
 
 export const MainLayout = ({ children }: { children: React.ReactNode }) => {
-    const backgroundImage = 'url(/bg-repeat.jpg)'
+    const backgroundImage = 'url(/bg-repeat2.png)'
 
     return (
         <Box
@@ -21,10 +21,10 @@ export const MainLayout = ({ children }: { children: React.ReactNode }) => {
                 bottom={0}
                 bgImage={backgroundImage}
                 bgRepeat={"repeat"}
-                bgSize="cover"
-                bgPosition="center"
-                bgAttachment="fixed"
-                filter="blur(5px)"
+            //      bgSize="cover"
+            //   bgPosition="center"
+            //   bgAttachment="fixed"
+            //  filter="blur(5px)"
             />
             <Stack
                 position={"relative"}
@@ -37,6 +37,7 @@ export const MainLayout = ({ children }: { children: React.ReactNode }) => {
                     <Header />
                     {children}
                     <Footer />
+                    <FooterMenu />
                 </Stack>
             </Stack>
         </Box>

@@ -1,12 +1,12 @@
 import { FaBlog, FaHome, FaInfo } from "react-icons/fa"
 
-
+import { Image } from "@chakra-ui/react"
 
 export const MenuItems = [
     {
-        name: "Home",
+        name: "Zirve",
         path: "/",
-        icon: <FaHome />,
+        icon: <Image src="/icon.png" width={8} height={8} rounded={"full"} />,
     },
     {
         name: "Blogs",
@@ -14,7 +14,7 @@ export const MenuItems = [
         icon: <FaBlog />,
     },
     {
-        name: "About",
+        name: "Hakkımızda",
         path: "/about",
         icon: <FaInfo />,
     },
