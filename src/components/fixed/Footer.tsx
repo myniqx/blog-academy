@@ -6,6 +6,7 @@ import { Box, Button, Image, Container, HStack, Link, Stack, Text, TextProps, VS
 
 
 import NextLink from 'next/link'
+import { ReactNode } from "react"
 
 export const Footer = () => {
 
@@ -135,7 +136,7 @@ const FooterNav = () => {
     )
 }
 
-const FooterNavItem = ({ path, name, icon }) => {
+const FooterNavItem = ({ path, name }: { path: string, name: string }) => {
     const isExternal = path?.startsWith('http')
 
     return (
