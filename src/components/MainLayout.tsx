@@ -1,6 +1,6 @@
 import { Box, Image, Stack } from "@chakra-ui/react"
 import { Header } from "./fixed/Hearder"
-import { Footer, FooterMenu } from "./fixed/Footer"
+import { Footer } from "./fixed/Footer"
 
 
 export const MainLayout = ({ children }: { children: React.ReactNode }) => {
