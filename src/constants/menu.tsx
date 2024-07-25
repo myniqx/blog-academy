@@ -7,7 +7,7 @@ export const MenuItems = [
     {
         name: web.name,
         path: "/",
-        icon: <Image src="/icon.png" width={8} height={8} rounded={"full"} />,
+        icon: <Image src="/icon.png" width={8} height={8} rounded={"full"} alt={web.name} />,
     },
     {
         name: "Blogs",

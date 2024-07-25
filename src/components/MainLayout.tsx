@@ -21,10 +21,6 @@ export const MainLayout = ({ children }: { children: React.ReactNode }) => {
                 bottom={0}
                 bgImage={backgroundImage}
                 bgRepeat={"repeat"}
-            //      bgSize="cover"
-            //   bgPosition="center"
-            //   bgAttachment="fixed"
-            //  filter="blur(5px)"
             />
             <Stack
                 position={"relative"}

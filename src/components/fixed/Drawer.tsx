@@ -48,6 +48,7 @@ export const DrawerMenu = () => {
                                     height={`200px`}
                                     rounded={"full"}
                                     boxShadow={"lg"}
+                                    alt={web.name}
                                     zIndex={0}
                                 />
                                 <Heading

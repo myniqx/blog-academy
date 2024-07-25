@@ -1,8 +1,7 @@
-import { footerMenu } from "@/constants/footerMenu"
 import { MenuItems } from "@/constants/menu"
 import { socialItems } from "@/constants/socials"
 import { web } from "@/constants/web"
-import { Box, Button, Image, Container, HStack, Link, Stack, Text, TextProps, VStack, Wrap, IconButton, SimpleGrid } from "@chakra-ui/react"
+import { HStack, IconButton, Link, SimpleGrid, Text, TextProps, VStack } from "@chakra-ui/react"
 
 
 

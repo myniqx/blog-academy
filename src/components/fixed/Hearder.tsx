@@ -1,13 +1,8 @@
-import { Button, Heading, HStack, IconButton, Image, Link } from "@chakra-ui/react"
-import { sign } from "crypto"
-import NextLink from 'next/link'
-import React, { useState } from "react"
-import { FaHome } from "react-icons/fa"
-import { FaBlog, FaBurger, FaInfo } from "react-icons/fa6"
-import { MdInfoOutline, MdMenu } from "react-icons/md"
-import { DrawerMenu } from "./Drawer"
 import { MenuItems } from "@/constants/menu"
 import { web } from "@/constants/web"
+import { Button, Heading, HStack, Image, Link } from "@chakra-ui/react"
+import NextLink from 'next/link'
+import { DrawerMenu } from "./Drawer"
 
 
 
@@ -20,7 +15,7 @@ export const Header = () => {
             height={web.headerHeight}
         >
             <HStack gap={4} alignItems={"center"} ml={6}>
-                <Image src="/icon.png" boxSize={{ base: "48px", lg: "64px" }} rounded={"full"} boxShadow={"lg"} />
+                <Image src="/icon.png" boxSize={{ base: "48px", lg: "64px" }} rounded={"full"} boxShadow={"lg"} alt={web.name} />
                 <Heading>{web.name}</Heading>
             </HStack>
             <HStack
