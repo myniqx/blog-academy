@@ -37,7 +37,6 @@ export const MainLayout = ({ children }: { children: React.ReactNode }) => {
                     <Header />
                     {children}
                     <Footer />
-                    <FooterMenu />
                 </Stack>
             </Stack>
         </Box>

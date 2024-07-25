@@ -6,6 +6,7 @@ import { useState } from "react"
 import { MdMenu } from "react-icons/md"
 
 import NextLink from 'next/link'
+import { web } from "@/constants/web"
 
 
 export const DrawerMenu = () => {
@@ -22,14 +23,14 @@ export const DrawerMenu = () => {
                 onClick={() => onOpen()}
             />
 
-            <Drawer 
-            closeOnEsc
-            colorScheme="whiteAlpha"
-            onClose={onClose} isOpen={isOpen} size={'full'}>
+            <Drawer
+                closeOnEsc
+                colorScheme="whiteAlpha"
+                onClose={onClose} isOpen={isOpen} size={'full'}>
                 <DrawerOverlay />
                 <DrawerContent
-                 bg="rgba(255, 255, 255, 0.1)" // Hafif saydam arka plan
-                 backdropFilter="blur(6px)"   // Blur efekti
+                    bg="rgba(255, 255, 255, 0.4)" // Hafif saydam arka plan
+                    backdropFilter="blur(6px)"   // Blur efekti
                 >
                     <DrawerCloseButton
                         size={{ base: "md", lg: "lg" }}
@@ -42,17 +43,21 @@ export const DrawerMenu = () => {
                         >
                             <Stack alignItems={"center"}>
                                 <Image
-                                    src="/logo.png"
+                                    src="/icon.png"
                                     width={`200px`}
                                     height={`200px`}
+                                    rounded={"full"}
+                                    boxShadow={"lg"}
                                     zIndex={0}
                                 />
-                                <Heading>
-                                    Zirve Academy
+                                <Heading
+                                    textShadow={"2px 2px 4px rgba(0, 0, 0, 0.5)"}
+                                >
+                                    {web.name}
                                 </Heading>
                             </Stack>
                             <VStack
-                                mb={36}
+                                mb={24}
                             >
                                 {menus.map((menu) => (
                                     <Link

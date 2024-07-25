@@ -7,7 +7,7 @@ const Blogs = () => {
 
     return (
         <Container maxW={"7xl"}>
-            <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={4} overflowY={"auto"}>
+            <SimpleGrid columns={{ base: 1, md: 2 }} spacing={4} overflowY={"auto"}>
                 {blogs.map((blog) => (
                     <BlogPreview
                         key={blog.slug}

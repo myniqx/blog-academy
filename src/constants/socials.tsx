@@ -11,7 +11,7 @@ export const socialItems = [
   {
     label: 'WhatsApp',
     icon: FaWhatsapp,
-    link: 'https://api.whatsapp.com/send?phone=0555',
+    link: 'https://api.whatsapp.com/send?phone=05406404010',
   },
   {
     label: 'Instagram',

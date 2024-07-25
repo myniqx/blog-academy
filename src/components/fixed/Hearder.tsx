@@ -7,6 +7,7 @@ import { FaBlog, FaBurger, FaInfo } from "react-icons/fa6"
 import { MdInfoOutline, MdMenu } from "react-icons/md"
 import { DrawerMenu } from "./Drawer"
 import { MenuItems } from "@/constants/menu"
+import { web } from "@/constants/web"
 
 
 
@@ -16,11 +17,11 @@ export const Header = () => {
     return (
         <HStack
             justifyContent={"space-between"}
-            height={"90px"}
+            height={web.headerHeight}
         >
             <HStack gap={4} alignItems={"center"} ml={6}>
                 <Image src="/icon.png" boxSize={{ base: "48px", lg: "64px" }} rounded={"full"} boxShadow={"lg"} />
-                <Heading>Zirve Academy</Heading>
+                <Heading>{web.name}</Heading>
             </HStack>
             <HStack
                 gap={4}
@@ -39,8 +40,9 @@ export const Header = () => {
                         </Button>
                     </Link>
                 ))}
-                <DrawerMenu />
             </HStack>
+
+            <DrawerMenu />
         </HStack>
     )
 }
