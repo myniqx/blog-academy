@@ -1,5 +1,5 @@
-"use client"
-import { web } from "@/constants/web"
+"use client";
+import { web } from "@/constants/web";
 import {
   Box,
   SimpleGrid,
@@ -11,10 +11,10 @@ import {
   HStack,
   VStack,
   Link,
-} from "@chakra-ui/react"
-import { FaMapMarkerAlt, FaPhone, FaAddressCard } from "react-icons/fa"
-import { FaEnvelope } from "react-icons/fa6"
-import { HiRefresh } from "react-icons/hi"
+} from "@chakra-ui/react";
+import { FaMapMarkerAlt, FaPhone, FaAddressCard } from "react-icons/fa";
+import { FaEnvelope } from "react-icons/fa6";
+import { HiRefresh } from "react-icons/hi";
 
 const AboutUs = () => {
   const items = [
@@ -33,7 +33,7 @@ const AboutUs = () => {
       value: web.email,
       href: "mailto:" + web.email,
     },
-  ]
+  ];
 
   return (
     <Box p={5}>
@@ -89,7 +89,7 @@ const AboutUs = () => {
         </Center>
       </Card>
     </Box>
-  )
-}
+  );
+};
 
-export default AboutUs
+export default AboutUs;

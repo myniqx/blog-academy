@@ -15,10 +15,12 @@ import {
   Link,
   OrderedList,
   UnorderedList,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 import ReactMarkdown from "react-markdown";
 import { FaCalendarAlt, FaEye } from "react-icons/fa";
 import { web } from "@/constants/web";
+import { BlogImage } from "./BlogImage";
 
 type Blog = {
   title: string;
@@ -39,14 +41,9 @@ export const BlogContent = ({ blog }: { blog: Blog }) => {
   return (
     <Card overflow={"hidden"} boxShadow={"2xl"} rounded={"3xl"}>
       <Box position="relative" width="100%" textAlign="center">
-        <Image
-          objectFit="cover"
-          width={"100%"}
-          src={`/images/blog/${blog.slug}.jpg`}
-          alt={blog.title}
-        />
+        <BlogImage slug={blog.slug} alt={blog.title} />
         <Box
-          position={{ base: "relative", lg: "absolute" }}
+          position={"absolute"}
           bottom={0}
           width="100%"
           bg="rgba(0, 0, 0, 0.6)"
@@ -62,7 +59,7 @@ export const BlogContent = ({ blog }: { blog: Blog }) => {
       </Box>
 
       <CardBody>
-        <Stack spacing={4} width="100%" px={6}>
+        <Stack spacing={4} width="100%" px={{ base: 0, lg: 4 }}>
           <HStack justifyContent={`flex-end`} spacing={12} width="100%">
             {blog.date && (
               <Flex alignItems={`baseline`} gap={4}>
@@ -78,7 +75,7 @@ export const BlogContent = ({ blog }: { blog: Blog }) => {
             </Flex>
           </HStack>
 
-          <Box m={4}>
+          <Box m={{ base: 1, lg: 4 }}>
             <ReactMarkdown
               components={{
                 p: ({ children, ...props }) => (

@@ -1,10 +1,10 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
-import Slider from "react-slick";
-import { Box, Progress } from "@chakra-ui/react";
-import { SliderPage } from "./SliderPage";
 import blogs from "@/constants/blogs/blogs.json";
 import { web } from "@/constants/web";
+import { Box } from "@chakra-ui/react";
+import React, { useEffect, useRef, useState } from "react";
+import Slider from "react-slick";
+import { SliderPage } from "./SliderPage";
 
 const CarouselWithProgress = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -47,7 +47,7 @@ const CarouselWithProgress = () => {
 
   const sliders = blogs.map((blog) => ({
     title: blog.title,
-    img: `images/blog/${blog.slug}.jpg`,
+    slug: blog.slug,
     link: `/blogs/${blog.slug}`,
   }));
 
@@ -59,7 +59,7 @@ const CarouselWithProgress = () => {
             key={index}
             title={slider.title}
             progress={progress}
-            img={slider.img}
+            slug={slider.slug}
             link={slider.link}
           />
         ))}

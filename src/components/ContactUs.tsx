@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import {
   Button,
   ButtonSpinner,
@@ -18,21 +18,21 @@ import {
   Tr,
   useToast,
   VStack,
-} from "@chakra-ui/react"
-import { SocialButtons } from "./Socials"
-import { web } from "@/constants/web"
-import { useState } from "react"
-import { FaCheck, FaX } from "react-icons/fa6"
-import { MdError } from "react-icons/md"
-import { SocialLabels } from "@/constants/socials"
-import React from "react"
+} from "@chakra-ui/react";
+import { SocialButtons } from "./Socials";
+import { web } from "@/constants/web";
+import { useState } from "react";
+import { FaCheck, FaX } from "react-icons/fa6";
+import { MdError } from "react-icons/md";
+import { SocialLabels } from "@/constants/socials";
+import React from "react";
 
 type FormData = {
-  name: string
-  email: string
-  phone: string
-  message: string
-}
+  name: string;
+  email: string;
+  phone: string;
+  message: string;
+};
 
 export const ContactUs = () => {
   return (
@@ -40,20 +40,24 @@ export const ContactUs = () => {
       w={"100%"}
       minH={"100vh"}
       py={10}
-    //  bg={"primary.50"}
+      //  bg={"primary.50"}
     >
-      <SimpleGrid columns={{ base: 1, md: 2 }} gap={4} w={"75%"}>
-        <Card variant={"outline"} maxW={"lg"} shadow={"lg"}>
+      <SimpleGrid
+        columns={{ base: 1, md: 2 }}
+        gap={4}
+        w={{ lg: "75%", base: "85%" }}
+      >
+        <Card variant={"outline"} maxW={"lg"} shadow={"lg"} mx={"auto"}>
           <YouContactUs />
         </Card>
 
-        <Card variant={"outline"} maxW={"lg"} shadow={"lg"}>
+        <Card variant={"outline"} maxW={"lg"} shadow={"lg"} mx={"auto"}>
           <WeContactYou />
         </Card>
       </SimpleGrid>
     </Center>
-  )
-}
+  );
+};
 
 const YouContactUs = () => {
   const items: { name: string; buttons: SocialLabels[] }[] = [
@@ -73,7 +77,7 @@ const YouContactUs = () => {
       name: "Sosyal",
       buttons: ["X", "Instagram", "Youtube"],
     },
-  ]
+  ];
 
   return (
     <Center
@@ -90,7 +94,9 @@ const YouContactUs = () => {
       <SimpleGrid columns={{ base: 1, md: 2 }} spacing={6} mb={4}>
         {items.map((item, index) => (
           <React.Fragment key={index}>
-            <Text w={"100%"} textAlign={"center"} fontWeight={"bold"}>{item.name}</Text>
+            <Text w={"100%"} textAlign={"center"} fontWeight={"bold"}>
+              {item.name}
+            </Text>
             <Center w={"100%"}>
               <SocialButtons size={"sm"} filter={item.buttons} />
             </Center>
@@ -98,8 +104,8 @@ const YouContactUs = () => {
         ))}
       </SimpleGrid>
     </Center>
-  )
-}
+  );
+};
 
 const WeContactYou = () => {
   const [formData, setFormData] = useState<FormData>({
@@ -107,36 +113,36 @@ const WeContactYou = () => {
     email: "",
     phone: "",
     message: "",
-  })
-  const [validMail, setValidMail] = useState<null | "valid" | "invalid">(null)
-  const toast = useToast()
+  });
+  const [validMail, setValidMail] = useState<null | "valid" | "invalid">(null);
+  const toast = useToast();
 
   const isEmailAdressValid = (email: string) => {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
-  }
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
 
   const checkMail = (onlyValid?: boolean) => {
-    const email = formData.email.trim()
-    if (onlyValid && !isEmailAdressValid(email)) return
+    const email = formData.email.trim();
+    if (onlyValid && !isEmailAdressValid(email)) return;
     if (onlyValid) {
       if (isEmailAdressValid(formData.email)) {
-        setValidMail("valid")
+        setValidMail("valid");
       }
 
       setValidMail(
         email ? (isEmailAdressValid(email) ? "valid" : "invalid") : null
-      )
-      return
+      );
+      return;
     }
 
     if (formData.email === "") {
-      setValidMail(null)
+      setValidMail(null);
     } else if (isEmailAdressValid(formData.email)) {
-      setValidMail("valid")
+      setValidMail("valid");
     } else {
-      setValidMail("invalid")
+      setValidMail("invalid");
     }
-  }
+  };
 
   const isFormValid = (inform = false) => {
     if (!formData.name || formData.name.length < 3) {
@@ -146,8 +152,8 @@ const WeContactYou = () => {
           status: "error",
           duration: 3000,
           isClosable: true,
-        })
-      return false
+        });
+      return false;
     }
 
     if (!formData.email && !formData.phone) {
@@ -157,8 +163,8 @@ const WeContactYou = () => {
           status: "error",
           duration: 3000,
           isClosable: true,
-        })
-      return false
+        });
+      return false;
     }
 
     if (formData.email && !isEmailAdressValid(formData.email)) {
@@ -168,8 +174,8 @@ const WeContactYou = () => {
           status: "error",
           duration: 3000,
           isClosable: true,
-        })
-      return false
+        });
+      return false;
     }
 
     if (formData.message.length > 500) {
@@ -179,15 +185,15 @@ const WeContactYou = () => {
           status: "error",
           duration: 3000,
           isClosable: true,
-        })
-      return false
+        });
+      return false;
     }
 
-    return true
-  }
+    return true;
+  };
 
   const sendEmail = async () => {
-    if (!isFormValid(true)) return
+    if (!isFormValid(true)) return;
 
     try {
       const res = await fetch("/api/send-email", {
@@ -196,25 +202,25 @@ const WeContactYou = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
-      })
+      });
 
-      if (!res.ok) throw new Error("Email gönderilemedi")
-      const data = await res.json()
+      if (!res.ok) throw new Error("Email gönderilemedi");
+      const data = await res.json();
       toast({
         title: data.message,
         status: "success",
         duration: 3000,
         isClosable: true,
-      })
+      });
     } catch (error) {
       toast({
         title: "Email gönderilemedi",
         status: "error",
         duration: 3000,
         isClosable: true,
-      })
+      });
     }
-  }
+  };
   return (
     <VStack w={"100%"} p={8}>
       <Heading mb={8} textAlign={"center"} w={"80%"}>
@@ -256,8 +262,8 @@ const WeContactYou = () => {
             color: "primary.400",
           }}
           onChange={(e) => {
-            setFormData({ ...formData, email: e.target.value })
-            checkMail(true)
+            setFormData({ ...formData, email: e.target.value });
+            checkMail(true);
           }}
           onBlur={() => checkMail()}
         />
@@ -308,5 +314,5 @@ const WeContactYou = () => {
         </Button>
       </Stack>
     </VStack>
-  )
-}
+  );
+};

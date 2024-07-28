@@ -22,34 +22,32 @@ import Slider from "react-slick";
 export const Comments = () => {
   const commentLists = [
     {
-      name: "Kullanici 1",
+      name: "Hale Duymaz",
       comment:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget consectetur aliquam, nisi nisl volutpat nisl, eget aliquam nisl nisl eu nisl.",
+        "Doruk akademiden Mehmet beyle ileşim halindeydik. Kendisine çok teşekkür ediyorum.",
     },
     {
-      name: "Kullanici 2",
+      name: "Mehmet K.",
       comment:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget consectetur aliquam, nisi nisl volutpat nisl, eget aliquam nisl nisl eu nisl.",
+        "Tez konusundaki yardımları için kendilerine çok teşekkür ediyorum. Tam bir fiyat/performans hizmetti.",
     },
     {
-      name: "Kullanici 3",
-      comment:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget consectetur aliquam, nisi nisl volutpat nisl, eget aliquam nisl nisl eu nisl.",
+      name: "Derin Topçu",
+      comment: "Her aradığımda ulaşabildiğim, nazik ve ilgiliydiler.",
     },
     {
-      name: "Kullanici 4",
+      name: "Zeynep Sare Yılmaz",
       comment:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget consectetur aliquam, nisi nisl volutpat nisl, eget aliquam nisl nisl eu nisl.",
+        "Oldukça kısa sürem kalmasına rağmen tüm takıldığım noktalarda yardımcı oldular ve yetiştirdim. Çok teşekkür ediyorum.",
     },
     {
-      name: "Kullanici 5",
-      comment:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget consectetur aliquam, nisi nisl volutpat nisl, eget aliquam nisl nisl eu nisl.",
+      name: "Hakan Tekelli",
+      comment: "Mehmet bey sağolsun her konuda çok yardımcı oldu.",
     },
     {
-      name: "Kullanici 6",
+      name: "Yeliz Sarı",
       comment:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget consectetur aliquam, nisi nisl volutpat nisl, eget aliquam nisl nisl eu nisl.",
+        "Son haftada çıkan onca sıkıntıya rağmen her adımda yanımdaydılar. Teşekkür ediyorum.",
     },
   ];
 
@@ -96,7 +94,7 @@ export const Comments = () => {
 const CommentView = ({ user, comment }: { user: string; comment: string }) => {
   return (
     <Center h={"80%"} p={4}>
-      <Card variant={"outline"} maxW={"lg"} shadow={"lg"}>
+      <Card variant={"outline"} w={{ base: "100%", lg: "lg" }} shadow={"lg"}>
         <CardBody>
           <Flex
             gap={4}

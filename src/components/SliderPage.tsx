@@ -1,19 +1,27 @@
 import { web } from "@/constants/web";
-import { Box, Heading, Image, Link, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Heading,
+  Image,
+  Link,
+  Text,
+  useBreakpointValue,
+} from "@chakra-ui/react";
 
 import NextLink from "next/link";
+import { BlogImage } from "./BlogImage";
 
 type SliderPageProps = {
   title: string;
   progress: number;
-  img: string;
+  slug: string;
   link: string;
 };
 
 export const SliderPage: React.FC<SliderPageProps> = ({
   title,
   progress,
-  img,
+  slug,
   link,
 }) => {
   return (
@@ -23,7 +31,7 @@ export const SliderPage: React.FC<SliderPageProps> = ({
       position={"relative"}
       overflow={"hidden"}
     >
-      <Image objectFit="cover" src={img} alt={title} w={"100%"} h={"100%"} />
+      <BlogImage slug={slug} alt={title} />
       <Box
         position={"absolute"}
         bottom={3}

@@ -23,8 +23,8 @@ export const MenuItems = [
     icon: <FaBlog />,
   },
   {
-    name: "Hakkımızda",
-    path: "/about",
+    name: "İletişim",
+    path: "/contact",
     icon: <FaInfo />,
   },
 ];
