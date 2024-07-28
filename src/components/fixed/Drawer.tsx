@@ -93,7 +93,7 @@ export const DrawerMenu = () => {
                     </Button>
                   </Link>
                 ))}
-                <Box h={24} />
+                <Box h={12} />
                 <SocialButtons />
               </VStack>
             </VStack>
