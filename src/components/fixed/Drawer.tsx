@@ -1,6 +1,6 @@
-"use client";
+"use client"
 
-import { MenuItems } from "@/constants/menu";
+import { MenuItems } from "@/constants/menu"
 import {
   Box,
   Button,
@@ -19,17 +19,17 @@ import {
   Stack,
   useDisclosure,
   VStack,
-} from "@chakra-ui/react";
-import { useState } from "react";
-import { MdMenu } from "react-icons/md";
+} from "@chakra-ui/react"
+import { useState } from "react"
+import { MdMenu } from "react-icons/md"
 
-import NextLink from "next/link";
-import { web } from "@/constants/web";
-import { SocialButtons } from "../Socials";
+import NextLink from "next/link"
+import { web } from "@/constants/web"
+import { SocialButtons } from "../Socials"
 
 export const DrawerMenu = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const menus = MenuItems;
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const menus = MenuItems
 
   return (
     <Box display={{ lg: "none", base: "flex" }}>
@@ -80,13 +80,14 @@ export const DrawerMenu = () => {
                     href={menu.path}
                     key={menu.name}
                     zIndex={1}
+                    onClick={onClose}
                   >
                     <Button
                       variant={"ghost"}
                       size={"lg"}
                       color={"black"}
                       textShadow={"2px 2px 4px rgba(0, 0, 0, 0.5)"}
-                      //   leftIcon={menu.icon}
+                    //   leftIcon={menu.icon}
                     >
                       {menu.name}
                     </Button>
@@ -100,5 +101,5 @@ export const DrawerMenu = () => {
         </DrawerContent>
       </Drawer>
     </Box>
-  );
-};
+  )
+}
