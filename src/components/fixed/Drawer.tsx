@@ -68,6 +68,7 @@ export const DrawerMenu = () => {
                 <Heading
                   textShadow={"2px 2px 4px rgba(0, 0, 0, 0.5)"}
                   textAlign={"center"}
+                  color={"black"}
                 >
                   {web.name}
                 </Heading>
@@ -83,6 +84,8 @@ export const DrawerMenu = () => {
                     <Button
                       variant={"ghost"}
                       size={"lg"}
+                      color={"black"}
+                      textShadow={"2px 2px 4px rgba(0, 0, 0, 0.5)"}
                       //   leftIcon={menu.icon}
                     >
                       {menu.name}

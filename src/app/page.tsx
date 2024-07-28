@@ -6,7 +6,7 @@ import { Box, Stack } from "@chakra-ui/react";
 
 export default function Home() {
   return (
-    <Stack gap={0} spacing={0}>
+    <Stack gap={0} spacing={0} overflowX={"hidden"}>
       <CarouselWithProgress />
       <WhatWeDo />
       <ContactUs />

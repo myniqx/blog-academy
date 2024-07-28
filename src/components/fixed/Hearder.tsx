@@ -17,7 +17,7 @@ export const Header = () => {
           boxShadow={"lg"}
           alt={web.name}
         />
-        <Heading>{web.name}</Heading>
+        <Heading fontSize={{ base: "2xl", lg: "3xl" }}>{web.name}</Heading>
       </HStack>
       <HStack
         gap={4}

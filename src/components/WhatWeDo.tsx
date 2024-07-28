@@ -10,7 +10,7 @@ export const WhatWeDo = () => {
   ];
 
   return (
-    <Center w={"100%"} h={"100vh"} bg={"white"}>
+    <Center w={"100%"} minH={"100vh"} bg={"white"}>
       <Stack w={"80%"} h={"80%"} justifyContent={"space-evenly"}>
         {list.map((item, index) => (
           <Heading

@@ -1,19 +1,25 @@
-import { socialItems } from "@/constants/socials";
-import { HStack, IconButton, ResponsiveValue } from "@chakra-ui/react";
+import { socialItems, SocialLabels } from "@/constants/socials";
+import { HStack, IconButton, ResponsiveValue, Stack } from "@chakra-ui/react";
 
 type SocialButtonsProps = {
   size?: ResponsiveValue<"sm" | "md" | "lg">;
   gap?: number;
+  filter?: SocialLabels[];
+  horizontal?: boolean;
 };
 
 export const SocialButtons: React.FC<SocialButtonsProps> = ({
   size = "sm",
   gap = 2,
+  filter = ["WhatsApp", "X", "Instagram", "Youtube"],
+  horizontal = true,
 }) => {
-  const items = socialItems;
+  const items = filter
+    ? socialItems.filter((item) => filter.includes(item.label))
+    : socialItems;
 
   return (
-    <HStack align="start" gap={gap}>
+    <Stack direction={horizontal ? "row" : "column"} align="start" gap={gap}>
       {items?.map((item, i) => {
         return (
           <IconButton
@@ -25,17 +31,16 @@ export const SocialButtons: React.FC<SocialButtonsProps> = ({
             icon={<item.icon />}
             href={item.link}
             variant="outline"
-            colorScheme="primary"
-            borderColor="primary.300"
-            color="primary.300"
+            borderColor="primary.700"
+            color="primary.700"
             _hover={{
-              bg: "whiteAlpha.100",
-              borderColor: "primary.900",
-              color: "primary.900",
+              borderColor: "black",
+              color: "black",
+              borderWidth: 2,
             }}
           />
         );
       })}
-    </HStack>
+    </Stack>
   );
 };

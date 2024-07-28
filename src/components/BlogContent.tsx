@@ -15,26 +15,26 @@ import {
   Link,
   OrderedList,
   UnorderedList,
-} from "@chakra-ui/react"
-import ReactMarkdown from "react-markdown"
-import { FaCalendarAlt, FaEye } from "react-icons/fa"
-import { web } from "@/constants/web"
+} from "@chakra-ui/react";
+import ReactMarkdown from "react-markdown";
+import { FaCalendarAlt, FaEye } from "react-icons/fa";
+import { web } from "@/constants/web";
 
 type Blog = {
-  title: string
-  description: string
-  content: string
-  slug: string
-  date?: string
-  views?: number
-}
+  title: string;
+  description: string;
+  content: string;
+  slug: string;
+  date?: string;
+  views?: number;
+};
 
 export const BlogContent = ({ blog }: { blog: Blog }) => {
-  const badgeId = `${web.prefix}.${blog.slug}${process.env.NODE_ENV === "development" ? ".dev" : ""
-    }`
+  const badgeId = `${web.prefix}.${blog.slug}${
+    process.env.NODE_ENV === "development" ? ".dev" : ""
+  }`;
 
-  const leftOffset = 6
-
+  const leftOffset = 6;
 
   return (
     <Card overflow={"hidden"} boxShadow={"2xl"} rounded={"3xl"}>
@@ -46,7 +46,7 @@ export const BlogContent = ({ blog }: { blog: Blog }) => {
           alt={blog.title}
         />
         <Box
-          position="absolute"
+          position={{ base: "relative", lg: "absolute" }}
           bottom={0}
           width="100%"
           bg="rgba(0, 0, 0, 0.6)"
@@ -79,66 +79,84 @@ export const BlogContent = ({ blog }: { blog: Blog }) => {
           </HStack>
 
           <Box m={4}>
-            <ReactMarkdown components={{
-              p: ({ children, ...props }) => (
-                <Text as="p" mb={2} pl={leftOffset} {...props}>
-                  {children}
-                </Text>
-              ),
-              a: ({ children, href, ...props }) => (
-                <Link href={href} {...props}>
-                  {children}
-                </Link>
-              ),
-              h1: ({ children, ...props }) => (
-                <Heading as="h1" size="xl" mb={4} {...props}>
-                  {children}
-                </Heading>
-              ),
-              h2: ({ children, ...props }) => (
-                <Heading as="h2" size="lg" mb={2} mt={12} {...props}>
-                  {children}
-                </Heading>
-              ),
-              h3: ({ children, ...props }) => (
-                <Heading as="h3" size="md" mb={2} mt={6} pl={leftOffset / 3} {...props}>
-                  {children}
-                </Heading>
-              ),
-              h4: ({ children, ...props }) => (
-                <Heading as="h4" size="sm" mb={2} pl={leftOffset / 2} {...props}>
-                  {children}
-                </Heading>
-              ),
-              h5: ({ children, ...props }) => (
-                <Heading as="h5" size="xs" mb={2} pl={leftOffset} {...props}>
-                  {children}
-                </Heading>
-              ),
-              h6: ({ children, ...props }) => (
-                <Heading as="h6" size="xs" mb={2} pl={leftOffset} {...props}>
-                  {children}
-                </Heading>
-              ),
-              code: ({ children, ...props }) => <Code {...props}>{children}</Code>,
-              img: ({ src, alt, ...props }) => <Image src={src} alt={alt} {...props} />,
-              ul: ({ children, ...props }) => (
-                <UnorderedList pl={leftOffset} {...props}>
-                  {children}
-                </UnorderedList>
-              ),
-              ol: ({ children, ...props }) => (
-                <OrderedList pl={leftOffset} {...props}>
-                  {children}
-                </OrderedList>
-              ),
-            }}>
+            <ReactMarkdown
+              components={{
+                p: ({ children, ...props }) => (
+                  <Text as="p" mb={2} pl={leftOffset} {...props}>
+                    {children}
+                  </Text>
+                ),
+                a: ({ children, href, ...props }) => (
+                  <Link href={href} {...props}>
+                    {children}
+                  </Link>
+                ),
+                h1: ({ children, ...props }) => (
+                  <Heading as="h1" size="xl" mb={4} {...props}>
+                    {children}
+                  </Heading>
+                ),
+                h2: ({ children, ...props }) => (
+                  <Heading as="h2" size="lg" mb={2} mt={12} {...props}>
+                    {children}
+                  </Heading>
+                ),
+                h3: ({ children, ...props }) => (
+                  <Heading
+                    as="h3"
+                    size="md"
+                    mb={2}
+                    mt={6}
+                    pl={leftOffset / 3}
+                    {...props}
+                  >
+                    {children}
+                  </Heading>
+                ),
+                h4: ({ children, ...props }) => (
+                  <Heading
+                    as="h4"
+                    size="sm"
+                    mb={2}
+                    pl={leftOffset / 2}
+                    {...props}
+                  >
+                    {children}
+                  </Heading>
+                ),
+                h5: ({ children, ...props }) => (
+                  <Heading as="h5" size="xs" mb={2} pl={leftOffset} {...props}>
+                    {children}
+                  </Heading>
+                ),
+                h6: ({ children, ...props }) => (
+                  <Heading as="h6" size="xs" mb={2} pl={leftOffset} {...props}>
+                    {children}
+                  </Heading>
+                ),
+                code: ({ children, ...props }) => (
+                  <Code {...props}>{children}</Code>
+                ),
+                img: ({ src, alt, ...props }) => (
+                  <Image src={src} alt={alt} {...props} />
+                ),
+                ul: ({ children, ...props }) => (
+                  <UnorderedList pl={leftOffset} {...props}>
+                    {children}
+                  </UnorderedList>
+                ),
+                ol: ({ children, ...props }) => (
+                  <OrderedList pl={leftOffset} {...props}>
+                    {children}
+                  </OrderedList>
+                ),
+              }}
+            >
               {blog.content}
             </ReactMarkdown>
           </Box>
         </Stack>
       </CardBody>
     </Card>
-  )
+  );
 };
-

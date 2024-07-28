@@ -1,8 +1,16 @@
 import { FaWhatsapp, FaInstagram, FaYoutube } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
+import { FaEnvelope, FaPhone, FaXTwitter } from "react-icons/fa6";
 import { web } from "./web";
 
-export const socialItems = [
+export type SocialLabels =
+  | "WhatsApp"
+  | "X"
+  | "Instagram"
+  | "Youtube"
+  | "Mail"
+  | "Phone";
+
+export const socialItems: { label: SocialLabels; icon: any; link: string }[] = [
   {
     label: "WhatsApp",
     icon: FaWhatsapp,
@@ -22,5 +30,15 @@ export const socialItems = [
     label: "Youtube",
     icon: FaYoutube,
     link: "https://www.youtube.com/dorukakademi",
+  },
+  {
+    label: "Mail",
+    icon: FaEnvelope,
+    link: "mailto:" + web.email,
+  },
+  {
+    label: "Phone",
+    icon: FaPhone,
+    link: "tel:" + web.phone,
   },
 ];

@@ -1,5 +1,7 @@
 import { web } from "@/constants/web";
-import { Box, Heading, Image, Text } from "@chakra-ui/react";
+import { Box, Heading, Image, Link, Text } from "@chakra-ui/react";
+
+import NextLink from "next/link";
 
 type SliderPageProps = {
   title: string;
@@ -42,24 +44,31 @@ export const SliderPage: React.FC<SliderPageProps> = ({
         alignItems={"center"}
         justifyContent={"center"}
       >
-        <Heading
-          fontSize={{
-            base: "md",
-            md: "xl",
-            lg: "3xl",
-          }}
-          noOfLines={{
-            base: 2,
-            md: 1,
-          }}
-          color={"black"}
-          px={6}
-          textAlign={"center"}
-          py={1}
-          textShadow={"2px 2px 4px rgba(0, 0, 0, 0.5)"}
+        <Link
+          as={NextLink}
+          href={link}
+          textDecoration={"none"}
+          _hover={{ textDecoration: "none" }}
         >
-          {title}
-        </Heading>
+          <Heading
+            fontSize={{
+              base: "md",
+              md: "xl",
+              lg: "3xl",
+            }}
+            noOfLines={{
+              base: 2,
+              md: 1,
+            }}
+            color={"black"}
+            px={6}
+            textAlign={"center"}
+            py={1}
+            textShadow={"2px 2px 4px rgba(0, 0, 0, 0.5)"}
+          >
+            {title}
+          </Heading>
+        </Link>
       </Box>
     </Box>
   );

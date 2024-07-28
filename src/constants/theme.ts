@@ -1,5 +1,12 @@
-import { StyleFunctionProps, extendTheme, theme } from "@chakra-ui/react";
-import { poppins } from "./font";
+import { extendTheme } from "@chakra-ui/react";
+import "@fontsource/poppins/400.css";
+import "@fontsource/poppins/500.css";
+import "@fontsource/poppins/700.css";
+import "@fontsource/poppins/900.css";
+import "@fontsource/roboto/400.css";
+import "@fontsource/roboto/500.css";
+import "@fontsource/roboto/700.css";
+import "@fontsource/roboto/900.css";
 import { web } from "./web";
 
 const config = {
@@ -9,8 +16,8 @@ const config = {
 };
 
 const fonts = {
-  body: poppins.style.fontFamily,
-  heading: poppins.style.fontFamily,
+  heading: `'Poppins', 'Roboto', sans-serif`,
+  body: `'Poppins', 'Roboto', sans-serif`,
 };
 
 const styles = {
@@ -35,7 +42,7 @@ const styles = {
     },
     "h1, h2, h3, h4, h5, h6": {
       fontFamily: "heading",
-      fontWeight: 600,
+      fontWeight: 700,
       textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
     },
   },

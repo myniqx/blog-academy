@@ -13,6 +13,8 @@
     "@chakra-ui/react": "^2.8.2",
     "@emotion/react": "^11.13.0",
     "@emotion/styled": "^11.13.0",
+    "@fontsource/poppins": "^5.0.14",
+    "@fontsource/roboto": "^5.0.13",
     "framer-motion": "^11.3.8",
     "next": "14.2.5",
     "next-seo": "^6.5.0",
@@ -33,6 +35,6 @@
     "eslint": "^8",
     "eslint-config-next": "14.2.5",
     "prettier": "^2.5.1",
-    "typescript": "^5"
+    "typescript": "^5.4.9"
   }
 }

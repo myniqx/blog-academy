@@ -10,6 +10,8 @@ import {
   VStack,
   CardHeader,
   HStack,
+  Flex,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 import { title } from "process";
 import { FaUserCircle } from "react-icons/fa";
@@ -34,27 +36,48 @@ export const Comments = () => {
       comment:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget consectetur aliquam, nisi nisl volutpat nisl, eget aliquam nisl nisl eu nisl.",
     },
+    {
+      name: "Kullanici 4",
+      comment:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget consectetur aliquam, nisi nisl volutpat nisl, eget aliquam nisl nisl eu nisl.",
+    },
+    {
+      name: "Kullanici 5",
+      comment:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget consectetur aliquam, nisi nisl volutpat nisl, eget aliquam nisl nisl eu nisl.",
+    },
+    {
+      name: "Kullanici 6",
+      comment:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget consectetur aliquam, nisi nisl volutpat nisl, eget aliquam nisl nisl eu nisl.",
+    },
   ];
+
+  const slidesToShow = useBreakpointValue({
+    base: 1,
+    lg: 2,
+  });
 
   const settings = {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 2,
+    slidesToShow: slidesToShow,
     arrows: true,
-    slidesToScroll: 1,
+    slidesToScroll: slidesToShow,
+    rows: slidesToShow === 1 ? 2 : 1,
   };
 
   return (
     <VStack
       w={"100%"}
-      h={"100vh"}
+      minH={"100vh"}
       bg={"white"}
       p={20}
       gap={10}
       justifyContent={"space-around"}
     >
-      <Heading>Sizden Gelen Yorumlar</Heading>
+      <Heading textAlign={"center"}>Sizden Gelen Yorumlar</Heading>
       <Box w={"100%"}>
         <Slider {...settings}>
           {commentLists.map((comment, index) => (
@@ -72,13 +95,17 @@ export const Comments = () => {
 
 const CommentView = ({ user, comment }: { user: string; comment: string }) => {
   return (
-    <Center h={"80%"}>
+    <Center h={"80%"} p={4}>
       <Card variant={"outline"} maxW={"lg"} shadow={"lg"}>
         <CardBody>
-          <HStack>
+          <Flex
+            gap={4}
+            alignItems={"center"}
+            flexDirection={{ base: "column", md: "row" }}
+          >
             <FaUserCircle size={50} />
             <Heading size="md">{user}</Heading>
-          </HStack>
+          </Flex>
           <Text py="4">{comment}</Text>
         </CardBody>
       </Card>
