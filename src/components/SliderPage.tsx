@@ -1,35 +1,27 @@
-import { web } from "@/constants/web"
-import { Box, Heading, Image, Text } from "@chakra-ui/react"
+import { web } from "@/constants/web";
+import { Box, Heading, Image, Text } from "@chakra-ui/react";
 
 type SliderPageProps = {
-  title: string
-  progress: number
-  img: string
-  link: string
-}
+  title: string;
+  progress: number;
+  img: string;
+  link: string;
+};
 
 export const SliderPage: React.FC<SliderPageProps> = ({
   title,
   progress,
   img,
-  link
+  link,
 }) => {
-
   return (
     <Box
       w={"100%"}
-      h={`calc(90vh - ${web.headerHeight})`}
+      h={`calc(96vh - ${web.headerHeight})`}
       position={"relative"}
-      rounded={"lg"}
       overflow={"hidden"}
     >
-      <Image
-        objectFit="cover"
-        src={img}
-        alt={title}
-        w={"100%"}
-        h={"100%"}
-      />
+      <Image objectFit="cover" src={img} alt={title} w={"100%"} h={"100%"} />
       <Box
         position={"absolute"}
         bottom={3}
@@ -37,8 +29,7 @@ export const SliderPage: React.FC<SliderPageProps> = ({
         h={"60px"}
         w={`${progress}%`}
         backdropFilter={"blur(6px)"}
-      >
-      </Box>
+      ></Box>
       <Box
         position={"absolute"}
         bottom={3}
@@ -70,7 +61,6 @@ export const SliderPage: React.FC<SliderPageProps> = ({
           {title}
         </Heading>
       </Box>
-
     </Box>
-  )
-}
+  );
+};

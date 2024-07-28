@@ -1,26 +1,26 @@
-import { FaWhatsapp, FaInstagram, FaYoutube } from "react-icons/fa"
-import { FaXTwitter } from "react-icons/fa6"
-
+import { FaWhatsapp, FaInstagram, FaYoutube } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+import { web } from "./web";
 
 export const socialItems = [
   {
-    label: 'X',
-    icon: FaXTwitter,
-    link: 'https://x.com/zirveacademy',
-  },
-  {
-    label: 'WhatsApp',
+    label: "WhatsApp",
     icon: FaWhatsapp,
-    link: 'https://api.whatsapp.com/send?phone=05406404010',
+    link: "https://api.whatsapp.com/send?phone=" + web.phone,
   },
   {
-    label: 'Instagram',
+    label: "X",
+    icon: FaXTwitter,
+    link: "https://x.com/dorukakademi",
+  },
+  {
+    label: "Instagram",
     icon: FaInstagram,
-    link: 'https://instagram.com/zirveacademy',
+    link: "https://instagram.com/dorukakademi",
   },
   {
-    label: 'Youtube',
+    label: "Youtube",
     icon: FaYoutube,
-    link: 'https://www.youtube.com/zirveacademy',
+    link: "https://www.youtube.com/dorukakademi",
   },
-]
+];

@@ -1,19 +1,16 @@
-import Image from "next/image"
-import styles from "./page.module.css"
-import { Box, Center, Stack } from "@chakra-ui/react"
-import CarouselWithProgress from "@/components/Carussel"
+import CarouselWithProgress from "@/components/Carussel";
+import { Comments } from "@/components/Comments";
+import { ContactUs } from "@/components/ContactUs";
+import { WhatWeDo } from "@/components/WhatWeDo";
+import { Box, Stack } from "@chakra-ui/react";
 
 export default function Home() {
   return (
-    <Stack>
+    <Stack gap={0} spacing={0}>
       <CarouselWithProgress />
-      <Box
-        w={"100%"}
-        h={"100vh"}
-        bg={"white"}
-      >
-        Here
-      </Box>
+      <WhatWeDo />
+      <ContactUs />
+      <Comments />
     </Stack>
-  )
+  );
 }

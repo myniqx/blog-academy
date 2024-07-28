@@ -1,24 +1,22 @@
-import { Container, SimpleGrid } from "@chakra-ui/react"
-import blogs from "@/constants/blogs/blogs.json"
-import { BlogPreview } from "@/components/BlogPreview"
-
+import { Container, SimpleGrid } from "@chakra-ui/react";
+import blogs from "@/constants/blogs/blogs.json";
+import { BlogPreview } from "@/components/BlogPreview";
 
 const Blogs = () => {
+  return (
+    <Container maxW={"7xl"}>
+      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={4} overflowY={"auto"}>
+        {blogs.map((blog) => (
+          <BlogPreview
+            key={blog.slug}
+            title={blog.title}
+            description={blog.description}
+            slug={blog.slug}
+          />
+        ))}
+      </SimpleGrid>
+    </Container>
+  );
+};
 
-    return (
-        <Container maxW={"7xl"}>
-            <SimpleGrid columns={{ base: 1, md: 2 }} spacing={4} overflowY={"auto"}>
-                {blogs.map((blog) => (
-                    <BlogPreview
-                        key={blog.slug}
-                        title={blog.title}
-                        description={blog.description}
-                        slug={blog.slug}
-                    />
-                ))}
-            </SimpleGrid>
-        </Container>
-    )
-}
-
-export default Blogs
+export default Blogs;

@@ -1,7 +1,8 @@
-
-
-
 export const web = {
   name: "Doruk Akademi",
-  headerHeight: "90px"
-}
+  prefix: "doruk",
+  headerHeight: "100px",
+  adress: "Bir yerler",
+  phone: "05406404010",
+  email: "doruk@dorukakademi.com",
+};
