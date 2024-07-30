@@ -3,6 +3,6 @@ export const web = {
   prefix: "doruk",
   headerHeight: "100px",
   adress: "Bir yerler",
-  phone: "05406404010",
-  email: "doruk@dorukakademi.com",
-};
+  phone: "+905406404010",
+  email: "dorukakademik@gmail.com",
+}
