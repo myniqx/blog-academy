@@ -1,10 +1,6 @@
-import { web } from "./web";
+import { web } from "./web"
 
 export const ContactMenu = [
-  {
-    name: "Adres: ",
-    value: web.adress,
-  },
   {
     name: "Telefon: ",
     value: web.phone,
@@ -13,4 +9,4 @@ export const ContactMenu = [
     name: "Email: ",
     value: web.email,
   },
-];
+]

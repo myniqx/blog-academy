@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import {
   Box,
   Card,
@@ -12,12 +12,12 @@ import {
   HStack,
   Flex,
   useBreakpointValue,
-} from "@chakra-ui/react";
-import { title } from "process";
-import { FaUserCircle } from "react-icons/fa";
-import { FaUser } from "react-icons/fa6";
+} from "@chakra-ui/react"
+import { title } from "process"
+import { FaUserCircle } from "react-icons/fa"
+import { FaUser } from "react-icons/fa6"
 
-import Slider from "react-slick";
+import Slider from "react-slick"
 
 export const Comments = () => {
   const commentLists = [
@@ -49,12 +49,12 @@ export const Comments = () => {
       comment:
         "Son haftada çıkan onca sıkıntıya rağmen her adımda yanımdaydılar. Teşekkür ediyorum.",
     },
-  ];
+  ]
 
   const slidesToShow = useBreakpointValue({
     base: 1,
     lg: 2,
-  });
+  })
 
   const settings = {
     dots: true,
@@ -63,8 +63,8 @@ export const Comments = () => {
     slidesToShow: slidesToShow,
     arrows: true,
     slidesToScroll: slidesToShow,
-    rows: slidesToShow === 1 ? 2 : 1,
-  };
+    rows: 2 // slidesToShow === 1 ? 2 : 1,
+  }
 
   return (
     <VStack
@@ -88,8 +88,8 @@ export const Comments = () => {
         </Slider>
       </Box>
     </VStack>
-  );
-};
+  )
+}
 
 const CommentView = ({ user, comment }: { user: string; comment: string }) => {
   return (
@@ -108,5 +108,5 @@ const CommentView = ({ user, comment }: { user: string; comment: string }) => {
         </CardBody>
       </Card>
     </Center>
-  );
-};
+  )
+}
