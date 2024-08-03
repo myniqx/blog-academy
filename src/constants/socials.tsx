@@ -1,6 +1,6 @@
-import { FaWhatsapp, FaInstagram, FaYoutube } from "react-icons/fa"
-import { FaEnvelope, FaPhone, FaXTwitter } from "react-icons/fa6"
-import { web } from "./web"
+import { FaWhatsapp, FaInstagram, FaYoutube } from "react-icons/fa";
+import { FaEnvelope, FaPhone, FaXTwitter } from "react-icons/fa6";
+import { web } from "./web";
 
 export type SocialLabels =
   | "WhatsApp"
@@ -8,13 +8,13 @@ export type SocialLabels =
   | "Instagram"
   | "Youtube"
   | "Mail"
-  | "Phone"
+  | "Phone";
 
 export const socialItems: { label: SocialLabels; icon: any; link: string }[] = [
   {
     label: "WhatsApp",
     icon: FaWhatsapp,
-    link: "https://api.whatsapp.com/send?phone=" + web.phone.replace('+', ''),
+    link: "https://api.whatsapp.com/send?phone=" + web.phone.replace("+", ""),
   },
   {
     label: "X",
@@ -29,7 +29,7 @@ export const socialItems: { label: SocialLabels; icon: any; link: string }[] = [
   {
     label: "Youtube",
     icon: FaYoutube,
-    link: "https://www.youtube.com/dorukakademi",
+    link: "https://www.youtube.com/@DorukAkademik",
   },
   {
     label: "Mail",
@@ -41,4 +41,4 @@ export const socialItems: { label: SocialLabels; icon: any; link: string }[] = [
     icon: FaPhone,
     link: "tel:" + web.phone,
   },
-]
+];

@@ -1,7 +1,7 @@
-"use client"
-import { web } from '@/constants/web'
-import { WhatsAppWidget } from 'react-whatsapp-widget'
-import 'react-whatsapp-widget/dist/index.css'
+"use client";
+import { web } from "@/constants/web";
+import { WhatsAppWidget } from "react-whatsapp-widget";
+import "react-whatsapp-widget/dist/index.css";
 export const Chat = () => {
   return (
     <WhatsAppWidget
@@ -13,5 +13,5 @@ export const Chat = () => {
       sendButtonText="Gönder"
       inputPlaceHolder="Mesajınızı yazın"
     />
-  )
-}
+  );
+};

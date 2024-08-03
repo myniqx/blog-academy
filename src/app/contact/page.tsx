@@ -1,27 +1,31 @@
-"use client"
+import { getMetaData } from "@/constants/metadataBase"
 import { web } from "@/constants/web"
 import {
   Box,
-  SimpleGrid,
-  Icon,
-  Text,
-  Center,
   Card,
-  Stack,
-  HStack,
-  VStack,
+  Center,
+  Icon,
   Link,
+  SimpleGrid,
+  Text,
+  VStack,
 } from "@chakra-ui/react"
-import { FaMapMarkerAlt, FaPhone, FaAddressCard } from "react-icons/fa"
+import { FaPhone } from "react-icons/fa"
 import { FaEnvelope, FaWhatsapp } from "react-icons/fa6"
-import { HiRefresh } from "react-icons/hi"
+
+export const metadata = getMetaData({
+  title: "Iletisim",
+  description: "Iletisim",
+  route: "contact",
+  keywords: ["doruk iletişim", "whatsupp", "telefon", "email"],
+})
 
 const AboutUs = () => {
   const items = [
     {
       icon: FaWhatsapp,
       value: "WhatsApp",
-      href: "https://api.whatsapp.com/send?phone=" + web.phone.replace('+', ''),
+      href: "https://api.whatsapp.com/send?phone=" + web.phone.replace("+", ""),
     },
     {
       icon: FaPhone,
@@ -47,9 +51,9 @@ const AboutUs = () => {
                 _hover={{ textDecoration: "none" }}
               >
                 <VStack textAlign="center" gap={10} justifyContent={"center"}>
-                  <Icon
-                    as={item.icon}
-                    boxSize={{ base: "100px", md: "150px" }}
+                  <item.icon
+                    size="100px"
+                    //  size={{ base: "100px", md: "150px" }}
                     color="primary.500"
                   />
                   <Text fontSize="2xl" mt={4} w={"100%"}>

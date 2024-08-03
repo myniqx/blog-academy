@@ -1,6 +1,14 @@
-import { Container, SimpleGrid } from "@chakra-ui/react";
-import blogs from "@/constants/blogs/blogs.json";
-import { BlogPreview } from "@/components/BlogPreview";
+import { Container, SimpleGrid } from "@chakra-ui/react"
+import blogs from "@/constants/blogs/blogs.json"
+import { BlogPreview } from "@/components/BlogPreview"
+import { getMetaData } from "@/constants/metadataBase"
+
+export const metadata = getMetaData({
+  title: "Doruk Akademi rehber blogları",
+  description: "Doruk Akademi rehber blogları",
+  route: "blogs",
+  keywords: ["doruk akademi", "rehber blogları"],
+})
 
 const Blogs = () => {
   return (
@@ -16,7 +24,7 @@ const Blogs = () => {
         ))}
       </SimpleGrid>
     </Container>
-  );
-};
+  )
+}
 
-export default Blogs;
+export default Blogs

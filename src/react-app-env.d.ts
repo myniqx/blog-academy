@@ -1,1 +1,1 @@
-declare module 'react-whatsapp-widget'
+declare module "react-whatsapp-widget";

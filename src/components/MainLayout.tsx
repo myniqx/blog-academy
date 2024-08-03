@@ -1,13 +1,12 @@
-import { Box, Image, Stack } from "@chakra-ui/react"
-import { Header } from "./fixed/Hearder"
-import { Footer } from "./fixed/Footer"
+import { Box, Image, Stack } from "@chakra-ui/react";
+import { Header } from "./fixed/Hearder";
+import { Footer } from "./fixed/Footer";
 
-
-import { web } from "@/constants/web"
-import { Chat } from "./Chat"
+import { web } from "@/constants/web";
+import { Chat } from "./Chat";
 
 export const MainLayout = ({ children }: { children: React.ReactNode }) => {
-  const backgroundImage = "url(/bg-repeat2.png)"
+  const backgroundImage = "url(/bg-repeat2.png)";
 
   return (
     <Box w={"100vw"} h={"100vh"} position={"relative"} overflow={"hidden"}>
@@ -29,5 +28,5 @@ export const MainLayout = ({ children }: { children: React.ReactNode }) => {
         </Stack>
       </Stack>
     </Box>
-  )
-}
+  );
+};
