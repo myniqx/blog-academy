@@ -1,41 +1,44 @@
 {
-  "name": "blog-academy",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\""
-  },
-  "dependencies": {
-    "@chakra-ui/react": "^2.8.2",
-    "@emotion/react": "^11.13.0",
-    "@emotion/styled": "^11.13.0",
-    "@fontsource/poppins": "^5.0.14",
-    "@fontsource/roboto": "^5.0.13",
-    "framer-motion": "^11.3.8",
-    "next": "14.2.5",
-    "next-seo": "^6.5.0",
-    "nodemailer": "^6.9.14",
-    "react": "^18",
-    "react-dom": "^18",
-    "react-icons": "^5.2.1",
-    "react-markdown": "^9.0.1",
-    "react-slick": "^0.30.2",
-    "react-whatsapp-widget": "^2.2.0",
-    "slick-carousel": "^1.8.1"
-  },
-  "devDependencies": {
-    "@types/node": "^20",
-    "@types/nodemailer": "^6.4.15",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "@types/react-slick": "^0.23.13",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.5",
-    "prettier": "^2.5.1",
-    "typescript": "^5.4.9"
-  }
+	"name": "blog-academy",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint",
+		"format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
+		"post-build": "next-sitemap"
+	},
+	"dependencies": {
+		"@chakra-ui/react": "^2.8.2",
+		"@emotion/react": "^11.13.0",
+		"@emotion/styled": "^11.13.0",
+		"@fontsource/poppins": "^5.0.14",
+		"@fontsource/roboto": "^5.0.13",
+		"framer-motion": "^11.3.8",
+		"next": "14.2.5",
+		"next-seo": "^6.5.0",
+		"next-sitemap": "^4.2.3",
+		"nodemailer": "^6.9.14",
+		"react": "^18",
+		"react-dom": "^18",
+		"react-icons": "^5.2.1",
+		"react-markdown": "^9.0.1",
+		"react-slick": "^0.30.2",
+		"react-whatsapp-widget": "^2.2.0",
+		"slick-carousel": "^1.8.1"
+	},
+	"devDependencies": {
+		"@types/node": "^20",
+		"@types/nodemailer": "^6.4.15",
+		"@types/react": "^18",
+		"@types/react-dom": "^18",
+		"@types/react-slick": "^0.23.13",
+		"eslint": "^8",
+		"eslint-config-next": "14.2.5",
+		"prettier": "^2.5.1",
+		"typescript": "^5.4.9"
+	},
+	"packageManager": "yarn@1.22.21+sha1.1959a18351b811cdeedbd484a8f86c3cc3bbaf72"
 }

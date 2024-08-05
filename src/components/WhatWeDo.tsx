@@ -80,15 +80,11 @@ const TargetView: React.FC<listProps> = ({ desc, icon, head, img }) => {
       position={"relative"}
     >
       <Box
-        position={"absolute"}
-        top={0}
-        left={0}
         w={"100%"}
         h={"100%"}
         bgColor={"rgba(255, 255, 255, 0.3)"}
         backdropFilter={"blur(3px)"}
-        zIndex={-1}
-      />
+      >
       <VStack
         w={"100%"}
         h={"100%"}
@@ -117,7 +113,8 @@ const TargetView: React.FC<listProps> = ({ desc, icon, head, img }) => {
         >
           {desc}
         </Heading>
-      </VStack>
+        </VStack>
+      </Box>
     </Stack>
   )
 }

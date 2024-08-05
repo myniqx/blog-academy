@@ -1,7 +1,5 @@
-import { useRouter } from "next/router"
-import { NextSeo } from "next-seo"
-import blogs from "@/constants/blogs/blogs.json"
 import { BlogContent } from "@/components/BlogContent"
+import blogs from "@/constants/blogs/blogs.json"
 
 const Blog = ({ params }: { params: { slug: string } }) => {
   const { slug } = params

@@ -11,15 +11,35 @@ import { PropsWithChildren } from "react";
 
 import blogs from "@/constants/blogs/blogs.json";
 import { BlogPreview } from "@/components/BlogPreview";
+import { getMetaData } from "@/constants/metadataBase";
+import { Metadata, ResolvingMetadata } from "next";
 
 type BlogLayoutProps = PropsWithChildren<{
   params: { slug: string };
 }>;
 
+export async function generateMetadata(
+  { params }: BlogLayoutProps,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+
+  const currentBlog = blogs.find((blog) => blog.slug === params.slug);
+
+  const metadata = getMetaData({
+    title: currentBlog?.title || "Blog Yazısı Bulunamadı",
+    description: currentBlog?.description || "Blog yazısı bulunamadı.",
+    keywords: currentBlog?.title.split(" "),
+    route: currentBlog ? `blogs/${params.slug}` : "blog",
+  })
+
+  return metadata
+}
+
 const BlogLayout: React.FC<BlogLayoutProps> = ({
   children,
   params: { slug },
 }) => {
+
   const otherBlogs = blogs.filter((blog) => blog.slug !== slug);
 
   return (
