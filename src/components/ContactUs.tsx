@@ -26,6 +26,7 @@ import { FaCheck, FaX } from "react-icons/fa6";
 import { MdError } from "react-icons/md";
 import { SocialLabels } from "@/constants/socials";
 import React from "react";
+import { gtagReportConversion } from "@/utils/report";
 
 type FormData = {
   name: string;
@@ -212,6 +213,8 @@ const WeContactYou = () => {
         duration: 3000,
         isClosable: true,
       });
+
+      gtagReportConversion();
     } catch (error) {
       toast({
         title: "Email gönderilemedi",

@@ -1,4 +1,5 @@
 import { socialItems, SocialLabels } from "@/constants/socials";
+import { gtagReportConversion } from "@/utils/report";
 import { HStack, IconButton, ResponsiveValue, Stack } from "@chakra-ui/react";
 
 type SocialButtonsProps = {
@@ -30,6 +31,7 @@ export const SocialButtons: React.FC<SocialButtonsProps> = ({
             target="_blank"
             icon={<item.icon />}
             href={item.link}
+            onClick={() => gtagReportConversion()}
             variant="outline"
             borderColor="primary.700"
             color="primary.700"
