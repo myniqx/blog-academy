@@ -1,3 +1,4 @@
+"use client";
 import { socialItems, SocialLabels } from "@/constants/socials";
 import { gtagReportConversion } from "@/utils/report";
 import { HStack, IconButton, ResponsiveValue, Stack } from "@chakra-ui/react";
