@@ -22,17 +22,17 @@ import Slider from "react-slick";
 export const Comments = () => {
   const commentLists = [
     {
-      name: "Hale Duymaz",
+      name: "Hilal Yavuz",
       comment:
         "Doruk akademiden Mehmet beyle ileşim halindeydik. Kendisine çok teşekkür ediyorum.",
     },
     {
       name: "Mehmet K.",
       comment:
-        "Tez konusundaki yardımları için kendilerine çok teşekkür ediyorum. Tam bir fiyat/performans hizmetti.",
+        "Tez konusundaki yardımları için kendilerine çok teşekkür ediyorum. Aldığım hizmetin karşılığını fazlasıyla aldım.",
     },
     {
-      name: "Derin Topçu",
+      name: "Emir Devran",
       comment: "Her aradığımda ulaşabildiğim, nazik ve ilgiliydiler.",
     },
     {
@@ -45,9 +45,41 @@ export const Comments = () => {
       comment: "Mehmet bey sağolsun her konuda çok yardımcı oldu.",
     },
     {
-      name: "Yeliz Sarı",
+      name: "Aytaç Kılıç",
       comment:
         "Son haftada çıkan onca sıkıntıya rağmen her adımda yanımdaydılar. Teşekkür ediyorum.",
+    },
+    {
+      name: "Ayşe Demir",
+      comment: "Doruk Akademideki herkese teşekkürler, tezimi zamanında ve eksiksiz teslim ettim.",
+    },
+    {
+      name: "Kerem Yıldız",
+      comment: "Mehmet Bey'in danışmanlığında tezimi tamamladım. Çok memnun kaldım, herkese tavsiye ederim.",
+    },
+    {
+      name: "Elif Su",
+      comment: "Tez yazım sürecinde Doruk Akademi'den destek aldım. Verdikleri kaliteli hizmetten dolayı minnettarım.",
+    },
+    {
+      name: "Canberk Kaya",
+      comment: "Mehmet Bey'e ve Doruk Akademi'ye yardımları için teşekkür ederim. Tezimi başarıyla tamamladım.",
+    },
+    {
+      name: "Gözde Nur",
+      comment: "Doruk Akademi'nin profesyonel ekibi sayesinde tezimi sorunsuz bir şekilde tamamladım.",
+    },
+    {
+      name: "Mert Aslan",
+      comment: "Tez yazım sürecinde Doruk Akademi'den aldığım destek sayesinde hedeflerime ulaştım.",
+    },
+    {
+      name: "Selinay Öztürk",
+      comment: "Mehmet Bey'in yönlendirmeleri ve Doruk Akademi'nin sunduğu kaynaklar sayesinde tezimi başarıyla bitirdim.",
+    },
+    {
+      name: "Burak Çınar",
+      comment: "Doruk Akademi'nin uzman kadrosu ve kaliteli hizmet anlayışı sayesinde tezimi sorunsuz bir şekilde tamamladım.",
     },
   ];
 
