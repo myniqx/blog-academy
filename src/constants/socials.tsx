@@ -24,7 +24,7 @@ export const socialItems: { label: SocialLabels; icon: any; link: string }[] = [
   {
     label: "Instagram",
     icon: FaInstagram,
-    link: "https://instagram.com/dorukakademi",
+    link: "https://instagram.com/dorukakademii",
   },
   {
     label: "Youtube",
