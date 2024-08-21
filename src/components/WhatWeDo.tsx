@@ -25,7 +25,7 @@ export const WhatWeDo = () => {
   const fontSize = { base: "xl", md: "2xl", lg: "3xl" }
   const list: listProps[] = [
     {
-      desc: "Lisansüstü öğrencilerin akademik projelerde danışmanlık hizmeti sağlamak",
+      desc: "Lisansüstü öğrencilere akademik projelerde danışmanlık hizmeti sağlamak",
       head: "Projeler",
       icon: FaHandsHelping,
       img: "/images/blog/akademik-arastirma-kaynaklari-h.jpg",
@@ -37,7 +37,7 @@ export const WhatWeDo = () => {
       img: "/images/blog/arastirma-etigi-ve-intihal-onleme-h.jpg",
     },
     {
-      desc: "Ders ödevleri ve tez hazırlama süreçlerinde destek vererek öğrencilere rehberlik etmek",
+      desc: "Ders ödevleri ve tez hazırlama süreçlerine destek vererek öğrencilere rehberlik etmek",
       head: "Rehberlik",
       icon: GrNavigate,
       img: "/images/blog/basarili-akademik-makale-nasil-yazilir-h.jpg",
