@@ -11,10 +11,15 @@ export const metadata = getMetaData({
 })
 
 const Blogs = () => {
+
+  const sortedBlogs = blogs
+    .sort((a, b) => new Date(b.date || "").getTime() - new Date(a.date || "").getTime())
+
+
   return (
     <Container maxW={"7xl"}>
       <SimpleGrid columns={{ base: 1, md: 2 }} spacing={4} overflowY={"auto"}>
-        {blogs.map((blog) => (
+        {sortedBlogs.map((blog) => (
           <BlogPreview
             key={blog.slug}
             title={blog.title}

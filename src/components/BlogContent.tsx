@@ -64,7 +64,7 @@ export const BlogContent = ({ blog }: { blog: Blog }) => {
             {blog.date && (
               <Flex alignItems={`baseline`} gap={4}>
                 <FaCalendarAlt />
-                <Text>{blog.date}</Text>
+                <Text>{new Date(blog.date).toLocaleDateString("tr-TR")}</Text>
               </Flex>
             )}
             <Flex alignItems={`baseline`} gap={4}>

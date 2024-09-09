@@ -40,7 +40,9 @@ const BlogLayout: React.FC<BlogLayoutProps> = ({
   params: { slug },
 }) => {
 
-  const otherBlogs = blogs.filter((blog) => blog.slug !== slug);
+  const otherBlogs = blogs
+    .filter((blog) => blog.slug !== slug)
+    .sort((a, b) => new Date(b.date || "").getTime() - new Date(a.date || "").getTime())
 
   return (
     <Container maxW={"7xl"}>

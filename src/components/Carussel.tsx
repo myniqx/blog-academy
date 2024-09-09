@@ -45,11 +45,14 @@ const CarouselWithProgress = () => {
     }
   };
 
-  const sliders = blogs.map((blog) => ({
-    title: blog.title,
-    slug: blog.slug,
-    link: `/blogs/${blog.slug}`,
-  }));
+  const sliders = blogs
+    .sort((a, b) => new Date(b.date || "").getTime() - new Date(a.date || "").getTime())
+    .map((blog) => ({
+      title: blog.title,
+      slug: blog.slug,
+      link: `/blogs/${blog.slug}`,
+    }));
+
 
   return (
     <Box w={"100%"} h={`calc(100vh - ${web.headerHeight})`}>
