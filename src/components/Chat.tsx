@@ -5,27 +5,27 @@ import { useEffect } from "react";
 import { WhatsAppWidget } from "react-whatsapp-widget";
 import "react-whatsapp-widget/dist/index.css";
 export const Chat = () => {
-
-  const sendText = "Gönder"
+  const sendText = "Gönder";
 
   useEffect(() => {
-
     const handleButtonClick = () => {
       gtagReportConversion();
     };
 
-    const buttons = document.querySelectorAll('div > input + button');
+    const buttons = document.querySelectorAll("div > input + button");
 
     const buttonArray = Array.from(buttons);
-    const selectedButton = buttonArray.find((btn) => btn.textContent?.trim() === sendText);
+    const selectedButton = buttonArray.find(
+      (btn) => btn.textContent?.trim() === sendText,
+    );
 
     if (selectedButton) {
-      selectedButton.addEventListener('click', handleButtonClick);
+      selectedButton.addEventListener("click", handleButtonClick);
     }
 
     return () => {
       if (selectedButton) {
-        selectedButton.removeEventListener('click', handleButtonClick);
+        selectedButton.removeEventListener("click", handleButtonClick);
       }
     };
   }, []);

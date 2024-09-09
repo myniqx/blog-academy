@@ -32,13 +32,13 @@ export async function POST(request: NextRequest) {
     console.log("Email sent: " + info.response);
     return NextResponse.json(
       { message: "E-posta başarıyla gönderildi" },
-      { status: 200 }
+      { status: 200 },
     );
   } catch (error) {
     console.log(error);
     return NextResponse.json(
       { error: "E-posta gönderilemedi" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

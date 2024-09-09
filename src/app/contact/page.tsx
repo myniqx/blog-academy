@@ -1,5 +1,5 @@
-import { getMetaData } from "@/constants/metadataBase"
-import { web } from "@/constants/web"
+import { getMetaData } from "@/constants/metadataBase";
+import { web } from "@/constants/web";
 import {
   Box,
   Card,
@@ -9,16 +9,16 @@ import {
   SimpleGrid,
   Text,
   VStack,
-} from "@chakra-ui/react"
-import { FaPhone } from "react-icons/fa"
-import { FaEnvelope, FaWhatsapp } from "react-icons/fa6"
+} from "@chakra-ui/react";
+import { FaPhone } from "react-icons/fa";
+import { FaEnvelope, FaWhatsapp } from "react-icons/fa6";
 
 export const metadata = getMetaData({
   title: "Iletisim",
   description: "Iletisim",
   route: "contact",
   keywords: ["doruk iletişim", "whatsupp", "telefon", "email"],
-})
+});
 
 const AboutUs = () => {
   const items = [
@@ -37,7 +37,7 @@ const AboutUs = () => {
       value: web.email,
       href: "mailto:" + web.email,
     },
-  ]
+  ];
 
   return (
     <Box p={5}>
@@ -93,7 +93,7 @@ const AboutUs = () => {
         </Center>
       </Card> */}
     </Box>
-  )
-}
+  );
+};
 
-export default AboutUs
+export default AboutUs;

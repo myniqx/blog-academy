@@ -131,7 +131,7 @@ const WeContactYou = () => {
       }
 
       setValidMail(
-        email ? (isEmailAdressValid(email) ? "valid" : "invalid") : null
+        email ? (isEmailAdressValid(email) ? "valid" : "invalid") : null,
       );
       return;
     }

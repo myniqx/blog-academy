@@ -4,7 +4,10 @@ import path from "path";
 
 export async function POST(req: NextRequest) {
   if (process.env.NODE_ENV !== "development") {
-    return NextResponse.json({ message: "Method not allowed in development" }, { status: 405 });
+    return NextResponse.json(
+      { message: "Method not allowed in development" },
+      { status: 405 },
+    );
   }
 
   try {
@@ -13,12 +16,21 @@ export async function POST(req: NextRequest) {
 
     fs.writeFileSync(filePath, JSON.stringify(body, null, 2));
 
-    return NextResponse.json({ message: "Blog başarıyla kaydedildi." }, { status: 200 });
+    return NextResponse.json(
+      { message: "Blog başarıyla kaydedildi." },
+      { status: 200 },
+    );
   } catch (error) {
-    return NextResponse.json({ message: "Blog kaydedilemedi.", error }, { status: 500 });
+    return NextResponse.json(
+      { message: "Blog kaydedilemedi.", error },
+      { status: 500 },
+    );
   }
 }
 
 export function GET() {
-  return NextResponse.json({ message: "GET request not allowed" }, { status: 405 });
+  return NextResponse.json(
+    { message: "GET request not allowed" },
+    { status: 405 },
+  );
 }

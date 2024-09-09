@@ -3,8 +3,8 @@ import { useState, useEffect } from "react";
 import blogs from "@/constants/blogs/blogs.json";
 import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
-import '@uiw/react-markdown-editor/markdown-editor.css';
-import '@uiw/react-markdown-preview/markdown.css';
+import "@uiw/react-markdown-editor/markdown-editor.css";
+import "@uiw/react-markdown-preview/markdown.css";
 import {
   Box,
   Button,
@@ -25,7 +25,7 @@ import slugify from "slugify";
 
 const MarkdownEditor = dynamic(
   () => import("@uiw/react-markdown-editor").then((mod) => mod.default),
-  { ssr: false }
+  { ssr: false },
 );
 
 type Blog = {
@@ -52,13 +52,16 @@ const BlogEdit = () => {
   const [isNew, setIsNew] = useState(true);
   const [unsavedChanges, setUnsavedChanges] = useState(false);
   const [isAlertOpen, setIsAlertOpen] = useState(false);
-  const cancelRef = React.useRef();
+  const cancelRef = React.useRef(null);
 
-  const sortedBlogs = ([...blogs] as Blog[]).sort((a, b) =>
-    new Date(b.date || "").getTime() - new Date(a.date || "").getTime()
+  const sortedBlogs = ([...blogs] as Blog[]).sort(
+    (a, b) =>
+      new Date(b.date || "").getTime() - new Date(a.date || "").getTime(),
   );
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     const { name, value } = e.target;
     setUnsavedChanges(true);
     if (name === "title") {
@@ -76,8 +79,10 @@ const BlogEdit = () => {
     const updatedBlogs = isNew
       ? [...blogs, { ...currentBlog, updatedAt: new Date().toISOString() }]
       : blogs.map((blog) =>
-        blog.slug === currentBlog.slug ? { ...currentBlog, updatedAt: new Date().toISOString() } : blog
-      )
+          blog.slug === currentBlog.slug
+            ? { ...currentBlog, updatedAt: new Date().toISOString() }
+            : blog,
+        );
 
     try {
       const response = await fetch("/api/saveBlog", {
@@ -107,7 +112,7 @@ const BlogEdit = () => {
     } catch (error) {
       toast({
         title: "Kaydetme hatası",
-        description: error.message,
+        description: (error as Error).message ?? "Bilinmeyen hata!",
         status: "error",
         duration: 3000,
         isClosable: true,
@@ -154,7 +159,7 @@ const BlogEdit = () => {
   };
 
   return (
-    <Stack spacing={6} p={4} bg={'white'} padding={2} borderRadius={'lg'} m={4}>
+    <Stack spacing={6} p={4} bg={"white"} padding={2} borderRadius={"lg"} m={4}>
       <h1>{isNew ? "Yeni Blog Ekle" : "Blog Düzenle"}</h1>
 
       <Box display="flex" justifyContent="space-between" mb={4}>
@@ -229,7 +234,11 @@ const BlogEdit = () => {
               <Button ref={cancelRef} onClick={() => handleAlertClose(false)}>
                 Hayır
               </Button>
-              <Button colorScheme="blue" onClick={() => handleAlertClose(true)} ml={3}>
+              <Button
+                colorScheme="blue"
+                onClick={() => handleAlertClose(true)}
+                ml={3}
+              >
                 Evet
               </Button>
             </AlertDialogFooter>

@@ -6,23 +6,23 @@ import {
   SimpleGrid,
   Stack,
   VStack,
-} from "@chakra-ui/react"
-import { ReactNode } from "react"
-import { IconType } from "react-icons"
-import { FaHandsHelping, FaHome } from "react-icons/fa"
-import { FaChartLine } from "react-icons/fa6"
-import { GrNavigate } from "react-icons/gr"
-import { MdOutlineSsidChart } from "react-icons/md"
+} from "@chakra-ui/react";
+import { ReactNode } from "react";
+import { IconType } from "react-icons";
+import { FaHandsHelping, FaHome } from "react-icons/fa";
+import { FaChartLine } from "react-icons/fa6";
+import { GrNavigate } from "react-icons/gr";
+import { MdOutlineSsidChart } from "react-icons/md";
 
 type listProps = {
-  desc: string
-  head: string
-  icon: IconType
-  img: string
-}
+  desc: string;
+  head: string;
+  icon: IconType;
+  img: string;
+};
 
 export const WhatWeDo = () => {
-  const fontSize = { base: "xl", md: "2xl", lg: "3xl" }
+  const fontSize = { base: "xl", md: "2xl", lg: "3xl" };
   const list: listProps[] = [
     {
       desc: "Lisansüstü öğrencilere akademik projelerde danışmanlık hizmeti sağlamak",
@@ -48,7 +48,7 @@ export const WhatWeDo = () => {
       icon: FaChartLine,
       img: "/images/blog/akademik-networking-h.jpg",
     },
-  ]
+  ];
 
   return (
     <Center w={"100%"} minH={"100vh"} bg={"white"} p={6}>
@@ -64,11 +64,11 @@ export const WhatWeDo = () => {
         ))}
       </SimpleGrid>
     </Center>
-  )
-}
+  );
+};
 
 const TargetView: React.FC<listProps> = ({ desc, icon, head, img }) => {
-  const IconComponent = icon
+  const IconComponent = icon;
   return (
     <Stack
       w={"100%"}
@@ -85,36 +85,36 @@ const TargetView: React.FC<listProps> = ({ desc, icon, head, img }) => {
         bgColor={"rgba(255, 255, 255, 0.3)"}
         backdropFilter={"blur(3px)"}
       >
-      <VStack
-        w={"100%"}
-        h={"100%"}
-        justifyContent={"flex-start"}
-        alignItems={"flex-start"}
-        gap={16}
-      >
-        <Box ml={8} mt={32}>
-          <IconComponent size={64} />
-          <Heading
-            fontSize={{ base: "2xl", xl: "4xl" }}
-            textAlign={"center"}
-            mt={8}
-          >
-            {head}
-          </Heading>
-        </Box>
-
-        <Heading
-          fontSize={{ base: "xl", xl: "3xl" }}
-          textAlign={"left"}
-          mx={"auto"}
-          mb={{ base: 8, xl: 16 }}
-          w={{ base: "90%", md: "85%", xl: "80%" }}
-          wordBreak={"keep-all"}
+        <VStack
+          w={"100%"}
+          h={"100%"}
+          justifyContent={"flex-start"}
+          alignItems={"flex-start"}
+          gap={16}
         >
-          {desc}
-        </Heading>
+          <Box ml={8} mt={32}>
+            <IconComponent size={64} />
+            <Heading
+              fontSize={{ base: "2xl", xl: "4xl" }}
+              textAlign={"center"}
+              mt={8}
+            >
+              {head}
+            </Heading>
+          </Box>
+
+          <Heading
+            fontSize={{ base: "xl", xl: "3xl" }}
+            textAlign={"left"}
+            mx={"auto"}
+            mb={{ base: 8, xl: 16 }}
+            w={{ base: "90%", md: "85%", xl: "80%" }}
+            wordBreak={"keep-all"}
+          >
+            {desc}
+          </Heading>
         </VStack>
       </Box>
     </Stack>
-  )
-}
+  );
+};

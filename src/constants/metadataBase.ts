@@ -1,5 +1,5 @@
-import type { Metadata } from "next"
-import { web } from "./web"
+import type { Metadata } from "next";
+import { web } from "./web";
 
 export const getMetaData = ({
   title,
@@ -7,16 +7,22 @@ export const getMetaData = ({
   route,
   description,
 }: {
-  title: string | string[]
-  keywords?: string[]
-  route?: string
-  description?: string
+  title: string | string[];
+  keywords?: string[];
+  route?: string;
+  description?: string;
 }): Metadata => {
-  const baseTitle = ["Proje danışmanlıgı", "İntihal çözüm desteği", "Ödev ve tez rehberliği", "Akademik yayın danışmanlığı", web.name]
-  const titleList = [...(Array.isArray(title) ? title : [title]), ...baseTitle]
-  const mTitle = titleList.join(" | ")
-  const mUrl = route ? `${web.webaddr}/${route}` : web.webaddr
-  const mDescription = description ? description : "Akademik kariyer asistanı"
+  const baseTitle = [
+    "Proje danışmanlıgı",
+    "İntihal çözüm desteği",
+    "Ödev ve tez rehberliği",
+    "Akademik yayın danışmanlığı",
+    web.name,
+  ];
+  const titleList = [...(Array.isArray(title) ? title : [title]), ...baseTitle];
+  const mTitle = titleList.join(" | ");
+  const mUrl = route ? `${web.webaddr}/${route}` : web.webaddr;
+  const mDescription = description ? description : "Akademik kariyer asistanı";
 
   const baseMetadata: Metadata = {
     title: mTitle,
@@ -35,7 +41,7 @@ export const getMetaData = ({
     alternates: {
       canonical: mUrl,
     },
-  }
+  };
 
-  return baseMetadata
-}
+  return baseMetadata;
+};

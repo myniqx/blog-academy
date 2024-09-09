@@ -20,9 +20,8 @@ type BlogLayoutProps = PropsWithChildren<{
 
 export async function generateMetadata(
   { params }: BlogLayoutProps,
-  parent: ResolvingMetadata
+  parent: ResolvingMetadata,
 ): Promise<Metadata> {
-
   const currentBlog = blogs.find((blog) => blog.slug === params.slug);
 
   const metadata = getMetaData({
@@ -30,19 +29,21 @@ export async function generateMetadata(
     description: currentBlog?.description || "Blog yazısı bulunamadı.",
     keywords: currentBlog?.title.split(" "),
     route: currentBlog ? `blogs/${params.slug}` : "blog",
-  })
+  });
 
-  return metadata
+  return metadata;
 }
 
 const BlogLayout: React.FC<BlogLayoutProps> = ({
   children,
   params: { slug },
 }) => {
-
   const otherBlogs = blogs
     .filter((blog) => blog.slug !== slug)
-    .sort((a, b) => new Date(b.date || "").getTime() - new Date(a.date || "").getTime())
+    .sort(
+      (a, b) =>
+        new Date(b.date || "").getTime() - new Date(a.date || "").getTime(),
+    );
 
   return (
     <Container maxW={"7xl"}>
