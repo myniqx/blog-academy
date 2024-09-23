@@ -68,7 +68,7 @@ const BlogEdit = () => {
       setCurrentBlog((prev) => ({
         ...prev,
         [name]: value,
-        slug: slugify(value),
+        slug: slugify(value, { lower: true, remove: /[*+~.()'"!:@]/g }),
       }));
     } else {
       setCurrentBlog((prev) => ({ ...prev, [name]: value }));
