@@ -17,12 +17,17 @@ export const BlogImage: React.FC<BlogImageProps> = ({ slug, alt }) => {
     ? `/images/blog/${slug}.jpg`
     : `/images/blog/${slug}-h.jpg`;
 
+  const fallbackSrc = postfix
+    ? `/images/blog/${slug}-h.jpg`
+    : `/images/blog/${slug}.jpg`;
+
   return (
     <Image
       objectFit="cover"
       width={"100%"}
       height={"100%"}
       src={imageTop}
+      fallbackSrc={fallbackSrc}
       alt={alt}
     />
   );
