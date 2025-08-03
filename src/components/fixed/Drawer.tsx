@@ -4,27 +4,23 @@ import { MenuItems } from "@/constants/menu";
 import {
   Box,
   Button,
-  Center,
   Drawer,
   DrawerBody,
   DrawerCloseButton,
   DrawerContent,
-  DrawerHeader,
   DrawerOverlay,
   Heading,
-  HStack,
   IconButton,
   Image,
   Link,
   Stack,
   useDisclosure,
-  VStack,
+  VStack
 } from "@chakra-ui/react";
-import { useState } from "react";
 import { MdMenu } from "react-icons/md";
 
-import NextLink from "next/link";
 import { web } from "@/constants/web";
+import NextLink from "next/link";
 import { SocialButtons } from "../Socials";
 
 export const DrawerMenu = () => {

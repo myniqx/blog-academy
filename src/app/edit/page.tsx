@@ -1,26 +1,25 @@
 "use client";
-import { useState, useEffect } from "react";
 import blogs from "@/constants/blogs/blogs.json";
-import { useRouter } from "next/navigation";
-import dynamic from "next/dynamic";
-import "@uiw/react-markdown-editor/markdown-editor.css";
-import "@uiw/react-markdown-preview/markdown.css";
 import {
+  AlertDialog,
+  AlertDialogBody,
+  AlertDialogContent,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogOverlay,
   Box,
   Button,
   Input,
-  Textarea,
   Select,
-  useToast,
-  AlertDialog,
-  AlertDialogBody,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogContent,
-  AlertDialogOverlay,
   Stack,
+  Textarea,
+  useToast,
 } from "@chakra-ui/react";
-import React from "react";
+import "@uiw/react-markdown-editor/markdown-editor.css";
+import "@uiw/react-markdown-preview/markdown.css";
+import dynamic from "next/dynamic";
+import { useRouter } from "next/navigation";
+import React, { useState } from "react";
 import slugify from "slugify";
 
 const MarkdownEditor = dynamic(

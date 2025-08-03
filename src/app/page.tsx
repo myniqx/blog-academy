@@ -2,7 +2,7 @@ import CarouselWithProgress from "@/components/Carussel";
 import { Comments } from "@/components/Comments";
 import { ContactUs } from "@/components/ContactUs";
 import { WhatWeDo } from "@/components/WhatWeDo";
-import { Box, Stack } from "@chakra-ui/react";
+import { Stack } from "@chakra-ui/react";
 
 export default function Home() {
   return (
