@@ -19,7 +19,7 @@ export const BlogImage: React.FC<BlogImageProps> = ({ slug, alt }) => {
 
   const fallbackSrc = postfix
     ? `/images/blog/${slug}-h.jpg`
-    : `/images/blog/${slug}.jpg`;
+    : `/images/blog/${slug}.jpg`; 
 
   return (
     <Image
