@@ -17,8 +17,8 @@ export async function POST(request: NextRequest) {
   const { name, email, phone, message } = await request.json();
 
   const mailOptions: CreateEmailOptions = {
-    from: "Atlas Analiz <sandbox@resend.dev>",
-    to: process.env.EMAIL_ADDR || "",
+    from: "Doruk Akademi <sandbox@resend.dev>",
+    to: "atlasakademik@gmail.com", // || process.env.EMAIL_ADDR,
     subject: `Yeni başvuru: ${name}`,
     text: `Adı: ${name}\nE-posta adresi: ${email}\nTelefon numarası: ${phone}\nMesaj: ${message}`,
   };
@@ -27,13 +27,13 @@ export async function POST(request: NextRequest) {
     const { data, error } = await resend.emails.send(mailOptions);
     if (error) throw new Error(error.message);
     return NextResponse.json(
-      { message: "E-posta başarıyla gönderildi" },
+      { message: "E-posta başarıyla gönderildi: " + JSON.stringify(data) },
       { status: 200 },
     );
   } catch (error) {
     console.log(error);
     return NextResponse.json(
-      { error: "E-posta gönderilemedi" },
+      { error: "E-posta gönderilemedi :" + String(error) },
       { status: 500 },
     );
   }
