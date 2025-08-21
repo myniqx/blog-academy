@@ -1,14 +1,10 @@
 import { web } from "@/constants/web";
 import { NextRequest, NextResponse } from "next/server";
-import nodemailer from "nodemailer";
 
-const transporter = nodemailer.createTransport({
-  service: "Gmail", // veya başka bir e-posta servisi kullanabilirsin
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
-  },
-});
+
+import { CreateEmailOptions, Resend } from "resend";
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 type FormData = {
   name: string;
@@ -20,16 +16,16 @@ type FormData = {
 export async function POST(request: NextRequest) {
   const { name, email, phone, message } = await request.json();
 
-  const mailOptions = {
-    from: web.name,
-    to: process.env.EMAIL_ADDR,
+  const mailOptions: CreateEmailOptions = {
+    from: "Atlas Analiz <sandbox@resend.dev>",
+    to: process.env.EMAIL_ADDR || "",
     subject: `Yeni başvuru: ${name}`,
     text: `Adı: ${name}\nE-posta adresi: ${email}\nTelefon numarası: ${phone}\nMesaj: ${message}`,
   };
 
   try {
-    const info = await transporter.sendMail(mailOptions);
-    console.log("Email sent: " + info.response);
+    const { data, error } = await resend.emails.send(mailOptions);
+    if (error) throw new Error(error.message);
     return NextResponse.json(
       { message: "E-posta başarıyla gönderildi" },
       { status: 200 },
