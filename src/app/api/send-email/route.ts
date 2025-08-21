@@ -27,7 +27,7 @@ export async function POST(request: NextRequest) {
     const { data, error } = await resend.emails.send(mailOptions);
     if (error) throw new Error(error.message);
     return NextResponse.json(
-      { message: "E-posta başarıyla gönderildi: " + JSON.stringify(data) },
+      { message: "E-posta başarıyla gönderildi" },
       { status: 200 },
     );
   } catch (error) {
