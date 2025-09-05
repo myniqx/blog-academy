@@ -116,10 +116,27 @@ const WeContactYou = () => {
     message: "",
   });
   const [validMail, setValidMail] = useState<null | "valid" | "invalid">(null);
+  const [validPhone, setValidPhone] = useState<null | "valid" | "invalid">(null);
   const toast = useToast();
 
   const isEmailAdressValid = (email: string) => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
+
+  const isPhoneNumberValid = (phone: string) => {
+    // Türkiye telefon numarası formatları:
+    // 05XXXXXXXXX (11 haneli)
+    // +90 5XX XXX XX XX
+    // 0(5XX) XXX XX XX
+    const cleanPhone = phone.replace(/[\s()-]/g, '');
+    
+    // +90 ile başlıyorsa +90'ı kaldır
+    const normalizedPhone = cleanPhone.startsWith('+90') 
+      ? cleanPhone.substring(3)
+      : cleanPhone;
+    
+    // 11 haneli olmalı ve 05 ile başlamalı
+    return /^05\d{9}$/.test(normalizedPhone);
   };
 
   const checkMail = (onlyValid?: boolean) => {
@@ -145,6 +162,29 @@ const WeContactYou = () => {
     }
   };
 
+  const checkPhone = (onlyValid?: boolean) => {
+    const phone = formData.phone.trim();
+    if (onlyValid && !isPhoneNumberValid(phone)) return;
+    if (onlyValid) {
+      if (isPhoneNumberValid(formData.phone)) {
+        setValidPhone("valid");
+      }
+
+      setValidPhone(
+        phone ? (isPhoneNumberValid(phone) ? "valid" : "invalid") : null,
+      );
+      return;
+    }
+
+    if (formData.phone === "") {
+      setValidPhone(null);
+    } else if (isPhoneNumberValid(formData.phone)) {
+      setValidPhone("valid");
+    } else {
+      setValidPhone("invalid");
+    }
+  };
+
   const isFormValid = (inform = false) => {
     if (!formData.name || formData.name.length < 3) {
       if (inform)
@@ -157,16 +197,28 @@ const WeContactYou = () => {
       return false;
     }
 
-    if (!formData.email && !formData.phone) {
+    if (!formData.phone) {
       if (inform)
         toast({
-          title: "E-posta adresinizi ya da telefon numaranızı giriniz",
+          title: "Telefon numaranızı giriniz",
           status: "error",
           duration: 3000,
           isClosable: true,
         });
       return false;
     }
+
+    if (!isPhoneNumberValid(formData.phone)) {
+      if (inform)
+        toast({
+          title: "Geçerli bir Türkiye telefon numarası giriniz (05XX XXX XX XX)",
+          status: "error",
+          duration: 3000,
+          isClosable: true,
+        });
+      return false;
+    }
+
 
     if (formData.email && !isEmailAdressValid(formData.email)) {
       if (inform)
@@ -272,18 +324,29 @@ const WeContactYou = () => {
         />
 
         <HStack justifyContent={"space-between"} pr={4} mt={4}>
-          <Text fontWeight={"bold"}>Telefon:</Text>
+          <Text fontWeight={"bold"}>*Telefon:</Text>
+          {validPhone &&
+            (validPhone === "valid" ? (
+              <FaCheck color={"green.400"} />
+            ) : (
+              <MdError color={"red.400"} />
+            ))}
         </HStack>
         <Input
-          placeholder="Telefon"
+          placeholder="05XX XXX XX XX"
           size={"lg"}
           border={"1px"}
           variant="outlined"
+          isInvalid={validPhone === "invalid"}
           borderColor={"primary.400"}
           _placeholder={{
             color: "primary.400",
           }}
-          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+          onChange={(e) => {
+            setFormData({ ...formData, phone: e.target.value });
+            checkPhone(true);
+          }}
+          onBlur={() => checkPhone()}
         />
 
         <HStack justifyContent={"space-between"} pr={4} mt={4}>
