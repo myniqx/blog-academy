@@ -11,9 +11,6 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = getMetaData({
   title: "Çözümünüz Doruk Akademi'de",
-  verification: {
-    google: "lxXk3Ot9F5HtBQokFeosF11K9g-uMeVXjQDlhDdTHk8",
-  },
 });
 
 export default function RootLayout({
@@ -24,6 +21,7 @@ export default function RootLayout({
   return (
     <html lang="tr">
       <head>
+        <meta name="google-site-verification" content="lxXk3Ot9F5HtBQokFeosF11K9g-uMeVXjQDlhDdTHk8" />
         {/* <!-- Google tag (gtag.js) --> */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=AW-16663815429"
