@@ -11,6 +11,9 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = getMetaData({
   title: "Çözümünüz Doruk Akademi'de",
+  verification: {
+    google: "lxXk3Ot9F5HtBQokFeosF11K9g-uMeVXjQDlhDdTHk8",
+  },
 });
 
 export default function RootLayout({
