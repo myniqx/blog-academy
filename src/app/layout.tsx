@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="tr">
       <head>
-        <meta name="google-site-verification" content="lxXk3Ot9F5HtBQokFeosF11K9g-uMeVXjQDlhDdTHk8" />
+        <meta name="google-site-verification" content="BTyxpvKEN0cYZFyOw37tjzDu_t5HvafWckGfWT9V-7g" />
         {/* <!-- Google tag (gtag.js) --> */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=AW-16663815429"
