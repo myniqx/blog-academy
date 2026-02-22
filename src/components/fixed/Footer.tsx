@@ -3,8 +3,6 @@ import { socialItems } from "@/constants/socials";
 import { web } from "@/constants/web";
 import {
   HStack,
-  IconButton,
-  Link,
   SimpleGrid,
   Text,
   TextProps,
@@ -46,9 +44,9 @@ export const Footer = () => {
       <VStack width={"100%"} alignItems={"flex-start"}>
         <Text style={footerMenuHead}>Menü</Text>
         {MenuItems.map((menu) => (
-          <Link as={NextLink} pl={2} href={menu.path} key={menu.name}>
+          <NextLink href={menu.path} key={menu.name} style={{ paddingLeft: "0.5rem" }}>
             {menu.name}
-          </Link>
+          </NextLink>
         ))}
       </VStack>
 

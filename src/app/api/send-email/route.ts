@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 import { CreateEmailOptions, Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend(process.env.RESEND_API_KEY || 'fake_api');
 
 type FormData = {
   name: string;

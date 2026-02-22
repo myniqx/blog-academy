@@ -12,7 +12,6 @@ import {
   Heading,
   IconButton,
   Image,
-  Link,
   Stack,
   useDisclosure,
   VStack
@@ -71,23 +70,21 @@ export const DrawerMenu = () => {
               </Stack>
               <VStack mt={{ base: 24, lg: 24 }}>
                 {menus.map((menu) => (
-                  <Link
-                    as={NextLink}
+                  <NextLink
                     href={menu.path}
                     key={menu.name}
-                    zIndex={1}
                     onClick={onClose}
+                    style={{ zIndex: 1 }}
                   >
                     <Button
                       variant={"ghost"}
                       size={"lg"}
                       color={"black"}
                       textShadow={"2px 2px 4px rgba(0, 0, 0, 0.5)"}
-                      //   leftIcon={menu.icon}
                     >
                       {menu.name}
                     </Button>
-                  </Link>
+                  </NextLink>
                 ))}
                 <Box h={12} />
                 <SocialButtons />

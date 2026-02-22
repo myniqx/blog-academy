@@ -3,7 +3,6 @@ import {
   Box,
   Heading,
   Image,
-  Link,
   Text,
   useBreakpointValue,
 } from "@chakra-ui/react";
@@ -52,12 +51,7 @@ export const SliderPage: React.FC<SliderPageProps> = ({
         alignItems={"center"}
         justifyContent={"center"}
       >
-        <Link
-          as={NextLink}
-          href={link}
-          textDecoration={"none"}
-          _hover={{ textDecoration: "none" }}
-        >
+        <NextLink href={link} style={{ textDecoration: "none" }}>
           <Heading
             fontSize={{
               base: "md",
@@ -76,7 +70,7 @@ export const SliderPage: React.FC<SliderPageProps> = ({
           >
             {title}
           </Heading>
-        </Link>
+        </NextLink>
       </Box>
     </Box>
   );

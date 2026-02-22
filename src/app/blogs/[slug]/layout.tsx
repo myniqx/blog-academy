@@ -15,29 +15,29 @@ import { getMetaData } from "@/constants/metadataBase";
 import { Metadata, ResolvingMetadata } from "next";
 
 type BlogLayoutProps = PropsWithChildren<{
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }>;
 
 export async function generateMetadata(
   { params }: BlogLayoutProps,
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
-  const currentBlog = blogs.find((blog) => blog.slug === params.slug);
+  const { slug } = await params;
+  const currentBlog = blogs.find((blog) => blog.slug === slug);
 
   const metadata = getMetaData({
     title: currentBlog?.title || "Blog Yazısı Bulunamadı",
     description: currentBlog?.description || "Blog yazısı bulunamadı.",
     keywords: currentBlog?.title.split(" "),
-    route: currentBlog ? `blogs/${params.slug}` : "blog",
+    route: currentBlog ? `blogs/${slug}` : "blog",
   });
 
   return metadata;
 }
 
-const BlogLayout: React.FC<BlogLayoutProps> = ({
-  children,
-  params: { slug },
-}) => {
+const BlogLayout = async ({ children, params }: BlogLayoutProps) => {
+  const { slug } = await params;
+
   const otherBlogs = blogs
     .filter((blog) => blog.slug !== slug)
     .sort(
@@ -52,7 +52,7 @@ const BlogLayout: React.FC<BlogLayoutProps> = ({
 
         <Card variant="outline" boxShadow="2xl" rounded={"3xl"}>
           <CardHeader>
-            <Heading size="md">Diğer Yazılar</Heading>
+            <Heading size="md">Diğer Yazılar</Heading>
           </CardHeader>
           <CardBody>
             <SimpleGrid columns={{ base: 1, md: 3 }} spacing={2}>

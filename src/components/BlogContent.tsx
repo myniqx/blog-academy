@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Container,
   Stack,
@@ -83,7 +85,7 @@ export const BlogContent = ({ blog }: { blog: Blog }) => {
                     {children}
                   </Text>
                 ),
-                a: ({ children, href, ...props }) => (
+                a: ({ children, href, node, ...props }) => (
                   <Link href={href} {...props}>
                     {children}
                   </Link>
@@ -135,7 +137,7 @@ export const BlogContent = ({ blog }: { blog: Blog }) => {
                   <Code {...props}>{children}</Code>
                 ),
                 img: ({ src, alt, ...props }) => (
-                  <Image src={src} alt={alt} {...props} />
+                  <Image src={src as string} alt={alt} {...props} />
                 ),
                 ul: ({ children, ...props }) => (
                   <UnorderedList pl={leftOffset} {...props}>

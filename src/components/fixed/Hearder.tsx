@@ -1,6 +1,6 @@
 import { MenuItems } from "@/constants/menu";
 import { web } from "@/constants/web";
-import { Button, Heading, HStack, Image, Link } from "@chakra-ui/react";
+import { Button, Heading, HStack, Image } from "@chakra-ui/react";
 import NextLink from "next/link";
 import { DrawerMenu } from "./Drawer";
 
@@ -26,11 +26,11 @@ export const Header = () => {
         display={{ base: "none", lg: "flex" }}
       >
         {menus.map((menu) => (
-          <Link as={NextLink} href={menu.path} key={menu.name}>
+          <NextLink href={menu.path} key={menu.name}>
             <Button variant={"ghost"} size={"lg"} leftIcon={menu.icon}>
               {menu.name}
             </Button>
-          </Link>
+          </NextLink>
         ))}
       </HStack>
 

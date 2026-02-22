@@ -16,7 +16,7 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import "@uiw/react-markdown-editor/markdown-editor.css";
-import "@uiw/react-markdown-preview/markdown.css";
+//import "@uiw/react-markdown-preview/markdown.css";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
@@ -78,10 +78,10 @@ const BlogEdit = () => {
     const updatedBlogs = isNew
       ? [...blogs, { ...currentBlog, updatedAt: new Date().toISOString() }]
       : blogs.map((blog) =>
-          blog.slug === currentBlog.slug
-            ? { ...currentBlog, updatedAt: new Date().toISOString() }
-            : blog,
-        );
+        blog.slug === currentBlog.slug
+          ? { ...currentBlog, updatedAt: new Date().toISOString() }
+          : blog,
+      );
 
     try {
       const response = await fetch("/api/saveBlog", {

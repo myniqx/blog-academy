@@ -1,9 +1,5 @@
-import removeImports from 'next-remove-imports';
-
-const removeImportsPlugin = removeImports();
-
-const config = removeImportsPlugin({
-
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   async headers() {
     return [
       {
@@ -15,8 +11,20 @@ const config = removeImportsPlugin({
           },
         ],
       },
+      {
+        source: '/static/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
     ];
   },
-});
 
-export default config;
+  transpilePackages: [
+  ],
+};
+
+export default nextConfig;

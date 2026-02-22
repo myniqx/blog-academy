@@ -6,7 +6,6 @@ import {
   Text,
   CardFooter,
   Heading,
-  Link,
   Stack,
 } from "@chakra-ui/react";
 import NextLink from "next/link";
@@ -47,11 +46,11 @@ export const BlogPreview: React.FC<BlogPreviewProps> = ({
         </CardBody>
 
         <CardFooter>
-          <Link as={NextLink} href={`/blogs/${slug}`}>
+          <NextLink href={`/blogs/${slug}`}>
             <Button variant="solid" colorScheme="primary">
               Oku
             </Button>
-          </Link>
+          </NextLink>
         </CardFooter>
       </Stack>
     </Card>

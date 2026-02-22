@@ -21,10 +21,12 @@ export default function RootLayout({
   return (
     <html lang="tr">
       <head>
+        {/*
         <meta name="google-site-verification" content="BTyxpvKEN0cYZFyOw37tjzDu_t5HvafWckGfWT9V-7g" />
+        */}
         {/* <!-- Google tag (gtag.js) --> */}
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=AW-16663815429"
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17964595018"
           strategy="afterInteractive"
         />
         <Script id="gtag-init" strategy="afterInteractive">
@@ -32,7 +34,7 @@ export default function RootLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'AW-16663815429');
+            gtag('config', 'AW-17964595018');
           `}
         </Script>
         {/* <!-- Google Tag Manager --> */}
