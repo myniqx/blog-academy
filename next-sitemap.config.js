@@ -1,4 +1,4 @@
-const webAddr = 'https://dorukakademi.com';
+const webAddr = 'https://doruktez.com';
 const blogs = require('./src/constants/blogs/blogs.json');
 
 /** @type {import('next-sitemap').IConfig} */

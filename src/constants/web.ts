@@ -4,7 +4,7 @@ export const web = {
   headerHeight: "100px",
   phone: "+905406404010",
   email: "dorukakademik@gmail.com",
-  webaddr: "https://dorukakademi.com",
+  webaddr: "https://doruktez.com",
   keywords: [
     "akademik kariyer",
     "yüksek lisans",
