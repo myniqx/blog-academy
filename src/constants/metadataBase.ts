@@ -13,16 +13,16 @@ export const getMetaData = ({
   description?: string;
 }): Metadata => {
   const baseTitle = [
-    "Proje danışmanlıgı",
-    "İntihal çözüm desteği",
-    "Ödev ve tez rehberliği",
-    "Akademik yayın danışmanlığı",
+    "Araştırma yöntemi eğitimi",
+    "Akademik dürüstlük eğitimi",
+    "Araştırma süreci rehberliği",
+    "Akademik yayın etiği ve geri bildirim",
     web.name,
   ];
   const titleList = [...(Array.isArray(title) ? title : [title]), ...baseTitle];
   const mTitle = titleList.join(" | ");
   const mUrl = route ? `${web.webaddr}/${route}` : web.webaddr;
-  const mDescription = description ? description : "Akademik kariyer asistanı";
+  const mDescription = description ? description : web.description;
 
   const baseMetadata: Metadata = {
     title: mTitle,

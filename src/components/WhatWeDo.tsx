@@ -2,14 +2,12 @@ import {
   Box,
   Center,
   Heading,
-  HStack,
   SimpleGrid,
   Stack,
   VStack,
 } from "@chakra-ui/react";
-import { ReactNode } from "react";
 import { IconType } from "react-icons";
-import { FaHandsHelping, FaHome } from "react-icons/fa";
+import { FaHandsHelping } from "react-icons/fa";
 import { FaChartLine } from "react-icons/fa6";
 import { GrNavigate } from "react-icons/gr";
 import { MdOutlineSsidChart } from "react-icons/md";
@@ -22,29 +20,28 @@ type listProps = {
 };
 
 export const WhatWeDo = () => {
-  const fontSize = { base: "xl", md: "2xl", lg: "3xl" };
   const list: listProps[] = [
     {
-      desc: "Lisansüstü öğrencilere akademik projelerde danışmanlık hizmeti sağlamak",
-      head: "Projeler",
+      desc: "Araştırmacıların kendi çalışmalarına uygun yöntemi öğrenmelerine ve bilimsel süreci planlamalarına rehberlik etmek",
+      head: "Yöntem Eğitimi",
       icon: FaHandsHelping,
       img: "/images/blog/akademik-arastirma-kaynaklari-h.jpg",
     },
     {
-      desc: "İntihal sorunlarına çözümler üretmek, özgün çalışmaların meydana gelmesine katkıda bulunmak",
-      head: "Intihal",
+      desc: "Doğru atıf, şeffaf kaynak kullanımı ve benzerlik raporlarının etik biçimde yorumlanması konusunda eğitim vermek",
+      head: "Akademik Dürüstlük",
       icon: MdOutlineSsidChart,
       img: "/images/blog/arastirma-etigi-ve-intihal-onleme-h.jpg",
     },
     {
-      desc: "Ders ödevleri ve tez hazırlama süreçlerine destek vererek öğrencilere rehberlik etmek",
-      head: "Rehberlik",
+      desc: "Akademik veri tabanlarını, kaynak yönetim araçlarını ve kurum yazım kılavuzlarını kullanmayı öğretmek",
+      head: "Kaynak Yönetimi",
       icon: GrNavigate,
       img: "/images/blog/basarili-akademik-makale-nasil-yazilir-h.jpg",
     },
     {
-      desc: "Akademik yayınlarda danışmanlık hizmetleri ile akademik başarıyı artırmayı hedeflemek",
-      head: "Yayınlama",
+      desc: "Araştırmacının kendi hazırladığı taslaktaki geliştirme alanlarını açıklayıcı sorular ve yöntemsel geri bildirimle göstermek",
+      head: "Geliştirici Geri Bildirim",
       icon: FaChartLine,
       img: "/images/blog/akademik-networking-h.jpg",
     },

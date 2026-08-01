@@ -10,7 +10,7 @@ import "slick-carousel/slick/slick.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = getMetaData({
-  title: "Çözümünüz Doruk Akademi'de",
+  title: "Etik Akademik Süreç Rehberliği",
 });
 
 export default function RootLayout({
@@ -21,7 +21,10 @@ export default function RootLayout({
   return (
     <html lang="tr">
       <head>
-        <meta name="google-site-verification" content="1AlXdStY0FnEmXKCP_8AQMnmVSnbQW7NOISFTHiJecw" />
+        <meta
+          name="google-site-verification"
+          content="1AlXdStY0FnEmXKCP_8AQMnmVSnbQW7NOISFTHiJecw"
+        />
         {/* <!-- Google tag (gtag.js) --> */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=AW-17964595018"
