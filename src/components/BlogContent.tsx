@@ -1,15 +1,12 @@
 "use client";
 
 import {
-  Container,
   Stack,
   Box,
   Text,
   Image,
   Flex,
-  Icon,
   Card,
-  CardHeader,
   CardBody,
   HStack,
   Code,
@@ -17,12 +14,12 @@ import {
   Link,
   OrderedList,
   UnorderedList,
-  useBreakpointValue,
 } from "@chakra-ui/react";
 import ReactMarkdown from "react-markdown";
-import { FaCalendarAlt, FaEye } from "react-icons/fa";
+import { FaCalendarAlt } from "react-icons/fa";
 import { web } from "@/constants/web";
 import { BlogImage } from "./BlogImage";
+import { blogEthicsNotice } from "@/constants/ethics";
 
 type Blog = {
   title: string;
@@ -76,6 +73,21 @@ export const BlogContent = ({ blog }: { blog: Blog }) => {
               />
             </Flex>
           </HStack>
+
+          <Box
+            bg={"gray.50"}
+            borderLeftWidth={"4px"}
+            borderColor={"primary.500"}
+            px={{ base: 4, md: 6 }}
+            py={4}
+          >
+            <Heading as={"h2"} size={"sm"} mb={2}>
+              Etik kapsam
+            </Heading>
+            <Text color={"gray.700"} lineHeight={"tall"}>
+              {blogEthicsNotice}
+            </Text>
+          </Box>
 
           <Box m={{ base: 1, lg: 4 }}>
             <ReactMarkdown

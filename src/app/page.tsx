@@ -1,6 +1,6 @@
 import CarouselWithProgress from "@/components/Carussel";
-import { Comments } from "@/components/Comments";
 import { ContactUs } from "@/components/ContactUs";
+import { EthicalCommitment } from "@/components/EthicalCommitment";
 import { WhatWeDo } from "@/components/WhatWeDo";
 import { Stack } from "@chakra-ui/react";
 
@@ -10,7 +10,7 @@ export default function Home() {
       <CarouselWithProgress />
       <WhatWeDo />
       <ContactUs />
-      <Comments />
+      <EthicalCommitment />
     </Stack>
   );
 }

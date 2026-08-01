@@ -1,17 +1,11 @@
 import { MenuItems } from "@/constants/menu";
-import { socialItems } from "@/constants/socials";
 import { web } from "@/constants/web";
-import {
-  HStack,
-  SimpleGrid,
-  Text,
-  TextProps,
-  VStack,
-} from "@chakra-ui/react";
+import { HStack, SimpleGrid, Text, TextProps, VStack } from "@chakra-ui/react";
 
 import NextLink from "next/link";
 import { SocialButtons } from "../Socials";
 import { ContactMenu } from "@/constants/contact";
+import { footerEthicsNotice } from "@/constants/ethics";
 
 export const Footer = () => {
   const footerMenuHead: TextProps["style"] = {
@@ -22,52 +16,76 @@ export const Footer = () => {
   };
 
   return (
-    <SimpleGrid
-      spacing={12}
-      justifyContent={"space-evenly"}
-      alignItems={"flex-start"}
-      px={24}
-      my={12}
+    <VStack
+      spacing={8}
+      alignItems={"stretch"}
+      px={{ base: 6, md: 12, lg: 24 }}
+      py={12}
       w={"100%"}
-      columns={{
-        base: 1,
-        md: 2,
-        lg: 4,
-      }}
     >
-      <VStack width={"100%"}>
-        <Text fontWeight={"bold"} w={"100%"} textAlign={"left"}>
-          © {new Date().getFullYear()} {web.name}
-        </Text>
-      </VStack>
+      <SimpleGrid
+        spacing={12}
+        justifyContent={"space-evenly"}
+        alignItems={"flex-start"}
+        w={"100%"}
+        columns={{
+          base: 1,
+          md: 2,
+          lg: 4,
+        }}
+      >
+        <VStack width={"100%"}>
+          <Text fontWeight={"bold"} w={"100%"} textAlign={"left"}>
+            © {new Date().getFullYear()} {web.name}
+          </Text>
+        </VStack>
 
-      <VStack width={"100%"} alignItems={"flex-start"}>
-        <Text style={footerMenuHead}>Menü</Text>
-        {MenuItems.map((menu) => (
-          <NextLink href={menu.path} key={menu.name} style={{ paddingLeft: "0.5rem" }}>
-            {menu.name}
-          </NextLink>
-        ))}
-      </VStack>
-
-      <VStack width={"100%"} alignItems={"flex-start"}>
-        <Text style={footerMenuHead}>Sosyal</Text>
-        <SocialButtons />
-      </VStack>
-
-      <VStack width={"100%"} alignItems={"flex-start"}>
-        <Text style={footerMenuHead}>İletişim</Text>
-        {ContactMenu.map((menu) => (
-          <HStack key={menu.name} pl={2}>
-            <Text textAlign={"right"} key={menu.name}>
+        <VStack width={"100%"} alignItems={"flex-start"}>
+          <Text style={footerMenuHead}>Menü</Text>
+          {MenuItems.map((menu) => (
+            <NextLink
+              href={menu.path}
+              key={menu.name}
+              style={{ paddingLeft: "0.5rem" }}
+            >
               {menu.name}
-            </Text>
-            <Text textAlign={"left"} key={menu.value}>
-              {menu.value}
-            </Text>
-          </HStack>
-        ))}
-      </VStack>
-    </SimpleGrid>
+            </NextLink>
+          ))}
+        </VStack>
+
+        <VStack width={"100%"} alignItems={"flex-start"}>
+          <Text style={footerMenuHead}>Sosyal</Text>
+          <SocialButtons />
+        </VStack>
+
+        <VStack width={"100%"} alignItems={"flex-start"}>
+          <Text style={footerMenuHead}>İletişim</Text>
+          {ContactMenu.map((menu) => (
+            <HStack key={menu.name} pl={2}>
+              <Text textAlign={"right"} key={menu.name}>
+                {menu.name}
+              </Text>
+              <Text textAlign={"left"} key={menu.value}>
+                {menu.value}
+              </Text>
+            </HStack>
+          ))}
+        </VStack>
+      </SimpleGrid>
+
+      <Text
+        borderTopWidth={"1px"}
+        borderColor={"gray.200"}
+        color={"gray.600"}
+        fontSize={"sm"}
+        lineHeight={"tall"}
+        maxW={"6xl"}
+        mx={"auto"}
+        pt={6}
+        textAlign={"center"}
+      >
+        {footerEthicsNotice}
+      </Text>
+    </VStack>
   );
 };

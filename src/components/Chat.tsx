@@ -36,7 +36,7 @@ export const Chat = () => {
       companyName={web.name + " Destek"}
       //   replyTimeText="En kısa zamanda size geri dönüş yapıcağız."
       replyTimeText=""
-      message={`Doruk Akademi'ye hoşgeldiniz. \n\nSize nasıl yardımcı olabiliriz ?`}
+      message={`Doruk Akademi'ye hoş geldiniz. \n\nYalnızca araştırmacının kendi çalışmasını geliştirmesine yönelik etik eğitim ve rehberlik sunuyoruz. Size nasıl yardımcı olabiliriz?`}
       sendButtonText={sendText}
       inputPlaceHolder="Mesajınızı yazın"
     />

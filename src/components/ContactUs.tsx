@@ -1,38 +1,36 @@
 "use client";
 import {
   Button,
-  ButtonSpinner,
   Card,
-  CardBody,
   Center,
+  Checkbox,
   Heading,
   HStack,
   Input,
+  Select,
   SimpleGrid,
   Stack,
-  Table,
-  Tbody,
-  Td,
   Text,
   Textarea,
-  Tr,
   useToast,
   VStack,
 } from "@chakra-ui/react";
 import { SocialButtons } from "./Socials";
-import { web } from "@/constants/web";
 import { useState } from "react";
-import { FaCheck, FaX } from "react-icons/fa6";
+import { FaCheck } from "react-icons/fa6";
 import { MdError } from "react-icons/md";
 import { SocialLabels } from "@/constants/socials";
 import React from "react";
 import { gtagReportConversion } from "@/utils/report";
+import { ethicalDeclaration, ethicalServiceTypes } from "@/constants/ethics";
 
 type FormData = {
   name: string;
   email: string;
   phone: string;
   message: string;
+  serviceType: string;
+  ethicalDeclaration: boolean;
 };
 
 export const ContactUs = () => {
@@ -114,9 +112,13 @@ const WeContactYou = () => {
     email: "",
     phone: "",
     message: "",
+    serviceType: "",
+    ethicalDeclaration: false,
   });
   const [validMail, setValidMail] = useState<null | "valid" | "invalid">(null);
-  const [validPhone, setValidPhone] = useState<null | "valid" | "invalid">(null);
+  const [validPhone, setValidPhone] = useState<null | "valid" | "invalid">(
+    null,
+  );
   const toast = useToast();
 
   const isEmailAdressValid = (email: string) => {
@@ -128,13 +130,13 @@ const WeContactYou = () => {
     // 05XXXXXXXXX (11 haneli)
     // +90 5XX XXX XX XX
     // 0(5XX) XXX XX XX
-    const cleanPhone = phone.replace(/[\s()-]/g, '');
-    
+    const cleanPhone = phone.replace(/[\s()-]/g, "");
+
     // +90 ile başlıyorsa +90'ı kaldır
-    const normalizedPhone = cleanPhone.startsWith('+90') 
+    const normalizedPhone = cleanPhone.startsWith("+90")
       ? cleanPhone.substring(3)
       : cleanPhone;
-    
+
     // 11 haneli olmalı ve 05 ile başlamalı
     return /^05\d{9}$/.test(normalizedPhone);
   };
@@ -211,14 +213,14 @@ const WeContactYou = () => {
     if (!isPhoneNumberValid(formData.phone)) {
       if (inform)
         toast({
-          title: "Geçerli bir Türkiye telefon numarası giriniz (05XX XXX XX XX)",
+          title:
+            "Geçerli bir Türkiye telefon numarası giriniz (05XX XXX XX XX)",
           status: "error",
           duration: 3000,
           isClosable: true,
         });
       return false;
     }
-
 
     if (formData.email && !isEmailAdressValid(formData.email)) {
       if (inform)
@@ -242,6 +244,28 @@ const WeContactYou = () => {
       return false;
     }
 
+    if (!formData.serviceType) {
+      if (inform)
+        toast({
+          title: "Lütfen etik danışmanlık kapsamından bir konu seçin",
+          status: "error",
+          duration: 3000,
+          isClosable: true,
+        });
+      return false;
+    }
+
+    if (!formData.ethicalDeclaration) {
+      if (inform)
+        toast({
+          title: "Etik hizmet kapsamı beyanını onaylamanız gerekir",
+          status: "error",
+          duration: 3000,
+          isClosable: true,
+        });
+      return false;
+    }
+
     return true;
   };
 
@@ -257,8 +281,8 @@ const WeContactYou = () => {
         body: JSON.stringify(formData),
       });
 
-      if (!res.ok) throw new Error("Email gönderilemedi");
       const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Başvuru gönderilemedi");
       toast({
         title: data.message,
         status: "success",
@@ -269,7 +293,7 @@ const WeContactYou = () => {
       gtagReportConversion();
     } catch (error) {
       toast({
-        title: "Email gönderilemedi",
+        title: error instanceof Error ? error.message : "Başvuru gönderilemedi",
         status: "error",
         duration: 3000,
         isClosable: true,
@@ -368,6 +392,45 @@ const WeContactYou = () => {
             setFormData({ ...formData, message: e.target.value })
           }
         />
+
+        <Text fontWeight={"bold"} mt={4}>
+          *Destek konusu:
+        </Text>
+        <Select
+          placeholder="Etik danışmanlık kapsamından seçim yapın"
+          size={"lg"}
+          border={"1px"}
+          borderColor={"primary.400"}
+          value={formData.serviceType}
+          onChange={(e) =>
+            setFormData({ ...formData, serviceType: e.target.value })
+          }
+        >
+          {ethicalServiceTypes.map((serviceType) => (
+            <option key={serviceType} value={serviceType}>
+              {serviceType}
+            </option>
+          ))}
+        </Select>
+
+        <Text fontSize={"sm"} color={"gray.600"} mt={4} lineHeight={"tall"}>
+          Doruk Akademi, araştırmacı adına teslim edilebilir tez, makale, ödev,
+          proje veya sınav çalışması hazırlamaz ve bu tür hizmetlere aracılık
+          etmez.
+        </Text>
+        <Checkbox
+          mt={2}
+          alignItems={"flex-start"}
+          isChecked={formData.ethicalDeclaration}
+          onChange={(e) =>
+            setFormData({
+              ...formData,
+              ethicalDeclaration: e.target.checked,
+            })
+          }
+        >
+          <Text fontSize={"sm"}>{ethicalDeclaration}</Text>
+        </Checkbox>
 
         <Button
           mt={6}

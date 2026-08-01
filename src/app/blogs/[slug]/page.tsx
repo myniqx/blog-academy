@@ -7,8 +7,8 @@ export async function generateStaticParams() {
   }));
 }
 
-const Blog = ({ params }: { params: { slug: string } }) => {
-  const { slug } = params;
+const Blog = async ({ params }: { params: Promise<{ slug: string }> }) => {
+  const { slug } = await params;
   const blogPost = blogs.find((blog) => blog.slug === slug);
 
   if (!blogPost) {
