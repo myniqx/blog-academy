@@ -1,4 +1,3 @@
-import { ethicalServiceTypes } from "@/constants/ethics";
 import { NextRequest, NextResponse } from "next/server";
 
 import { CreateEmailOptions, Resend } from "resend";
@@ -10,8 +9,6 @@ type FormData = {
   email: string;
   phone: string;
   message: string;
-  serviceType: string;
-  ethicalDeclaration: boolean;
 };
 
 const disallowedRequestPatterns = [
@@ -22,30 +19,11 @@ const disallowedRequestPatterns = [
 ];
 
 export async function POST(request: NextRequest) {
-  const {
-    name,
-    email,
-    phone,
-    message,
-    serviceType,
-    ethicalDeclaration,
-  }: FormData = await request.json();
+  const { name, email, phone, message }: FormData = await request.json();
 
   if (!name || !phone || typeof message !== "string" || message.length > 500) {
     return NextResponse.json(
       { error: "Başvuru bilgileri eksik veya geçersiz." },
-      { status: 400 },
-    );
-  }
-
-  if (
-    !ethicalDeclaration ||
-    !ethicalServiceTypes.includes(
-      serviceType as (typeof ethicalServiceTypes)[number],
-    )
-  ) {
-    return NextResponse.json(
-      { error: "Başvuru etik danışmanlık kapsamı dışında." },
       { status: 400 },
     );
   }
@@ -66,7 +44,7 @@ export async function POST(request: NextRequest) {
     from: "Doruk Akademi <sandbox@resend.dev>",
     to: "atlasakademik@gmail.com", // || process.env.EMAIL_ADDR,
     subject: `Yeni başvuru: ${name}`,
-    text: `Adı: ${name}\nE-posta adresi: ${email}\nTelefon numarası: ${phone}\nDestek konusu: ${serviceType}\nEtik kapsam beyanı: Onaylandı\nMesaj: ${message}`,
+    text: `Adı: ${name}\nE-posta adresi: ${email}\nTelefon numarası: ${phone}\nMesaj: ${message}`,
   };
 
   try {
