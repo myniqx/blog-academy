@@ -3,11 +3,9 @@ import {
   Button,
   Card,
   Center,
-  Checkbox,
   Heading,
   HStack,
   Input,
-  Select,
   SimpleGrid,
   Stack,
   Text,
@@ -22,15 +20,12 @@ import { MdError } from "react-icons/md";
 import { SocialLabels } from "@/constants/socials";
 import React from "react";
 import { gtagReportConversion } from "@/utils/report";
-import { ethicalDeclaration, ethicalServiceTypes } from "@/constants/ethics";
 
 type FormData = {
   name: string;
   email: string;
   phone: string;
   message: string;
-  serviceType: string;
-  ethicalDeclaration: boolean;
 };
 
 export const ContactUs = () => {
@@ -112,8 +107,6 @@ const WeContactYou = () => {
     email: "",
     phone: "",
     message: "",
-    serviceType: "",
-    ethicalDeclaration: false,
   });
   const [validMail, setValidMail] = useState<null | "valid" | "invalid">(null);
   const [validPhone, setValidPhone] = useState<null | "valid" | "invalid">(
@@ -237,28 +230,6 @@ const WeContactYou = () => {
       if (inform)
         toast({
           title: "Mesajınız 500 karakterden uzun olamaz",
-          status: "error",
-          duration: 3000,
-          isClosable: true,
-        });
-      return false;
-    }
-
-    if (!formData.serviceType) {
-      if (inform)
-        toast({
-          title: "Lütfen etik danışmanlık kapsamından bir konu seçin",
-          status: "error",
-          duration: 3000,
-          isClosable: true,
-        });
-      return false;
-    }
-
-    if (!formData.ethicalDeclaration) {
-      if (inform)
-        toast({
-          title: "Etik hizmet kapsamı beyanını onaylamanız gerekir",
           status: "error",
           duration: 3000,
           isClosable: true,
@@ -392,45 +363,6 @@ const WeContactYou = () => {
             setFormData({ ...formData, message: e.target.value })
           }
         />
-
-        <Text fontWeight={"bold"} mt={4}>
-          *Destek konusu:
-        </Text>
-        <Select
-          placeholder="Etik danışmanlık kapsamından seçim yapın"
-          size={"lg"}
-          border={"1px"}
-          borderColor={"primary.400"}
-          value={formData.serviceType}
-          onChange={(e) =>
-            setFormData({ ...formData, serviceType: e.target.value })
-          }
-        >
-          {ethicalServiceTypes.map((serviceType) => (
-            <option key={serviceType} value={serviceType}>
-              {serviceType}
-            </option>
-          ))}
-        </Select>
-
-        <Text fontSize={"sm"} color={"gray.600"} mt={4} lineHeight={"tall"}>
-          Doruk Akademi, araştırmacı adına teslim edilebilir tez, makale, ödev,
-          proje veya sınav çalışması hazırlamaz ve bu tür hizmetlere aracılık
-          etmez.
-        </Text>
-        <Checkbox
-          mt={2}
-          alignItems={"flex-start"}
-          isChecked={formData.ethicalDeclaration}
-          onChange={(e) =>
-            setFormData({
-              ...formData,
-              ethicalDeclaration: e.target.checked,
-            })
-          }
-        >
-          <Text fontSize={"sm"}>{ethicalDeclaration}</Text>
-        </Checkbox>
 
         <Button
           mt={6}
